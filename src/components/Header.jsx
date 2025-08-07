@@ -5,9 +5,12 @@ const Header = () => {
     <nav>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/posts">posts</NavLink>
-      <NavLink to="/profile">Profile</NavLink>
       <NavLink to="/sign-in">Sign in</NavLink>
       <NavLink to="/sign-up">Sign up</NavLink>
+      <NavLink to="/stocks-lists">Stocks</NavLink>
+      <NavLink className="nav-profile" to="/profile">
+        Profile
+      </NavLink>
     </nav>
   );
 };
