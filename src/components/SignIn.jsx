@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = ({ setUser, user }) => {
-  const initialState = { email: "", password: "" };
+  const initialState = { username: "", password: "" };
   const [formValues, setFormValues] = useState(initialState);
   let navigate = useNavigate();
   const handleChange = (e) => {
@@ -22,17 +22,16 @@ const SignIn = ({ setUser, user }) => {
   return (
     <div className="background-container">
       <div className="sign-form">
-        <form className="up" onSubmit={handleSubmit}>
+        <form className="in" onSubmit={handleSubmit}>
           <h1>Sign in</h1>
           <div className="input-wrapper">
             <input
               onChange={handleChange}
-              id="email"
-              type="email"
+              id="username"
+              type="username"
               placeholder="example@example.com"
-              value={formValues.email}
+              value={formValues.username}
               required
-              autoComplete="email"
             />
           </div>
           <div className="input-wrapper">
@@ -47,7 +46,7 @@ const SignIn = ({ setUser, user }) => {
           </div>
           <button
             className="b-in"
-            disabled={!formValues.email || !formValues.password}
+            disabled={!formValues.username || !formValues.password}
           >
             Sign In
           </button>

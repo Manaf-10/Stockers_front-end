@@ -1,7 +1,119 @@
-import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { RegisterUser } from "../../services/auth";
 
 const SignUp = () => {
-  return <div>SignUp</div>;
+  let navigate = useNavigate();
+
+  const initialState = {
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    avatar: null,
+  };
+
+  const [formValues, setFormValues] = useState(initialState);
+
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formValues);
+    await RegisterUser({
+      username: formValues.username,
+      password: formValues.password,
+      email: formValues.email,
+      confirmPassword: formValues.confirmPassword,
+      avatar: formValues.avatar,
+    });
+    setFormValues(initialState);
+    navigate("/sign-in");
+  };
+
+  return (
+    <div className="background-container">
+      <div className="sign-form">
+        <form onSubmit={handleSubmit} className="up">
+          <h1>Sign up</h1>
+          <label className="image-upload" htmlFor="avatar">
+            <img
+              src={
+                "https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg"
+              }
+              alt="upload avatar"
+            />
+          </label>
+          <input
+            type="file"
+            id="avatar"
+            name="avatar"
+            style={{ display: "none" }}
+            onChange={handleChange}
+            className="img-upload"
+          />
+          <div className="input-wrapper">
+            <input
+              name="username"
+              type="text"
+              placeholder="username"
+              onChange={handleChange}
+              value={formValues.username}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <input
+              name="email"
+              type="email"
+              placeholder="example@example.com"
+              onChange={handleChange}
+              value={formValues.email}
+              required
+              autoComplete="email"
+            />
+          </div>
+          <div className="input-wrapper">
+            <input
+              placeholder="password"
+              name="password"
+              type="password"
+              onChange={handleChange}
+              value={formValues.password}
+              required
+              autoComplete="off"
+            />
+          </div>
+          <div className="input-wrapper">
+            <input
+              placeholder="confirmPassword"
+              name="confirmPassword"
+              type="password"
+              onChange={handleChange}
+              value={formValues.confirmPassword}
+              required
+              autoComplete="off"
+            />
+          </div>
+          <button
+            className="b-in"
+            disabled={
+              !formValues.firstname ||
+              !formValues.lastname ||
+              !formValues.email ||
+              (!formValues.password &&
+                formValues.password === formValues.confirmPassword)
+            }
+          >
+            Sign up
+          </button>
+        </form>
+        <div className="error-msg"></div>
+      </div>
+    </div>
+  );
 };
 
 export default SignUp;
