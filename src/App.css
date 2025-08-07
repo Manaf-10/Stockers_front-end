@@ -101,15 +101,15 @@ nav a {
   align-items: center;
   margin-right: 20%;
 }
+
 .listings {
-  background-color: aqua;
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
+  width: 60%;
 }
 .profile-lists-toggle {
-  width: 40%;
+  width: 35%;
   display: flex;
   justify-content: center;
   align-items: center;
