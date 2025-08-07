@@ -5,13 +5,9 @@ import Logs from './Logs'
 import { useNavigate } from "react-router-dom";
 const Profile = () => {
   const navigate = useNavigate();
-  const checkPage = (something) => {
-    if (something) return <UserPosts />;
-    else return <Listings />;
-  };
   const [page,setpage] = useState('Posts')
 
-    const renderPage=()=>{
+    const renderPage=(e)=>{
     switch(page){
       case 'Lists':
       return <Listings/>
@@ -26,7 +22,7 @@ const Profile = () => {
     //iam using inner text to get the innner content (doesnot makes sense to add an id or a name to the buttons)
     setpage(e.target.innerText)
   }
- 
+
   const user = {
     avatar:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2vwpeB612sSjtIA83YBXcCSX-YBG0Tv7F3Q&s",

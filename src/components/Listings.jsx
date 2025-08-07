@@ -1,6 +1,7 @@
 import React from "react";
 
 const Listings = () => {
+  
   const items = Array.from({ length: 10 });
   return (
     <div className="listings">
