@@ -109,14 +109,14 @@ nav a {
   width: 60%;
 }
 .profile-lists-toggle {
-  width: 35%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 66.8%;
 }
 
 .profile-lists-toggle button {
-  width: 50%;
+  width: 30%;
 }
 
 .test img {
@@ -126,3 +126,4 @@ nav a {
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
+

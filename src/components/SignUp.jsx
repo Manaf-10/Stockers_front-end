@@ -21,7 +21,6 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formValues);
     await RegisterUser({
       username: formValues.username,
       password: formValues.password,
