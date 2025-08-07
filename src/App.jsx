@@ -6,6 +6,9 @@ import Profile from "./components/Profile";
 import Posts from "./components/Posts";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import StockLists from "./components/StockLists";
+import StockGraph from "./components/StockGraph";
+import UserPosts from "./components/UserPosts";
 const App = () => {
   return (
     <>
@@ -20,6 +23,9 @@ const App = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/posts" element={<Posts />}></Route>
+        <Route path="/stocks-lists" element={<StockLists />}></Route>
+        <Route path="/stock-graph/:symbol" element={<StockGraph />}></Route>
+        <Route path="/:username/posts" element={<UserPosts />}></Route>
       </Routes>
     </>
   );
