@@ -74,3 +74,55 @@ nav a {
 .b-in:hover {
   background-color: darkgray;
 }
+
+.user-profile-container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: gray;
+}
+
+.user-profile-container img {
+  width: 30%;
+  border-radius: 100%;
+}
+
+.user-profile {
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+}
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 20%;
+}
+.listings {
+  background-color: aqua;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.profile-lists-toggle {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-lists-toggle button {
+  width: 50%;
+}
+
+.test img {
+  display: block;
+  border-radius: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}

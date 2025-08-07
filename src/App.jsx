@@ -9,6 +9,7 @@ import SignUp from "./components/SignUp";
 import StockLists from "./components/StockLists";
 import StockGraph from "./components/StockGraph";
 import UserPosts from "./components/UserPosts";
+import Edit from "./pages/Edit";
 const App = () => {
   return (
     <>
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/stocks-lists" element={<StockLists />}></Route>
         <Route path="/stock-graph/:symbol" element={<StockGraph />}></Route>
         <Route path="/:username/posts" element={<UserPosts />}></Route>
+        <Route path="/profile/edit" element={<Edit />}></Route>
       </Routes>
     </>
   );
