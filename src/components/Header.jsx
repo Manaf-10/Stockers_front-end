@@ -7,7 +7,7 @@ const Header = () => {
       <NavLink to="/posts">posts</NavLink>
       <NavLink to="/sign-in">Sign in</NavLink>
       <NavLink to="/sign-up">Sign up</NavLink>
-      <NavLink to="/stocks-lists">Stocks</NavLink>
+      <NavLink to="/stocks">Stocks</NavLink>
       {/*author: https://uiverse.io/joe-watson-sbf/shy-snake-4*/}
       <div className="search">
         <input type="text" className="search__input" placeholder="Search by Symbol"/> 

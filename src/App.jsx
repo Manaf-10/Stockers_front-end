@@ -24,8 +24,8 @@ const App = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/posts" element={<Posts />}></Route>
-        <Route path="/stocks-lists" element={<StockLists />}></Route>
-        <Route path="/stock-graph/:symbol" element={<StockGraph />}></Route>
+        <Route path="/stocks" element={<StockLists />}></Route>
+        <Route path="/stocks/:symbol" element={<StockGraph />}></Route>
         <Route path="/:username/posts" element={<UserPosts />}></Route>
         <Route path="/profile/edit" element={<Edit />}></Route>
       </Routes>
