@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 body {
   margin: 0;
   padding: 0;
   height: 100vh;
   width: 100vw;
+  font-family: -apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif;
+  overflow-x: hidden;
 }
 
 nav {
@@ -12,11 +15,59 @@ nav {
   position: sticky; top:0;
   height: 65px
 }
-nav input{
-  margin-left: 10%;
-  height: 50%;
-  width: 30%;
-  border-radius: 20px;
+
+.search {
+  margin-left: 31%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.search__input {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #f4f2f2;
+  border: none;
+  color: #646464;
+  padding: 0.7rem 1rem;
+  border-radius: 30px;
+  transition: all ease-in-out .5s;
+  margin-right: -2rem;
+}
+
+.search__input:hover, .search__input:focus {
+  box-shadow: 0 0 1em #00000013;
+}
+
+.search__input:focus {
+  outline: none;
+  background-color: #f0eeee;
+}
+
+.search__input::-webkit-input-placeholder {
+  font-weight: 100;
+  color: #ccc;
+}
+
+.search__input:focus + .search__button {
+  background-color: #f0eeee;
+}
+
+.search__button {
+  border: none;
+  background-color: #f4f2f2;
+  margin-top: .1em;
+}
+
+.search__button:hover {
+  cursor: pointer;
+}
+
+.search__icon {
+  height: 1.3em;
+  width: 1.3em;
+  fill: #b4b4b4;
 }
 
 nav a {
@@ -27,60 +78,102 @@ nav a {
   margin-left: auto;
 }
 
-.sign-form {
+/*author https://uiverse.io/ahmed150up/tiny-yak-9*/
+.background-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
-  gap: 10px;
+  min-height: 100vh;
+  background: #f5f7fa;
+  font-family: Arial, sans-serif;
 }
 
-.up {
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  margin: 0;
-  height: 80%;
+.sign-form {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
   width: 350px;
-  border-radius: 12px;
-  background-color: white;
-  gap: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
-.in {
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  margin: 0;
-  height: 50%;
-  width: 350px;
-  border-radius: 12px;
-  background-color: white;
-  gap: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+
+
+.sign-form h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
 }
+
+
+.input-wrapper {
+  margin-bottom: 18px;
+}
+
+
 .input-wrapper input {
-  border: 2px solid black;
-  height: 34px;
-  width: 260px;
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1.8px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s;
 }
+
+.input-wrapper input:focus {
+  outline: none;
+  border-color: #2962ff;
+}
+
+
+.image-upload {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.image-upload img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px dashed #ccc;
+  object-fit: cover;
+  transition: border-color 0.3s;
+}
+
+.image-upload:hover img {
+  border-color: #2962ff;
+}
+
 
 .b-in {
-  border-radius: 30px;
-  width: 200px;
-  height: 30px;
-  transition: background 0.3s;
-  border: none;
-  background-color: black;
+  width: 100%;
+  background-color: #2962ff;
   color: white;
+  padding: 12px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
-.b-in:hover {
-  background-color: darkgray;
+
+.b-in:disabled {
+  background-color: #b3c7ff;
+  cursor: not-allowed;
 }
+
+.b-in:not(:disabled):hover {
+  background-color: #0039cb;
+}
+
+
+.error-msg {
+  margin-top: 10px;
+  color: #cc2f3c;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
 
 .user-profile-container {
   height: 100%;
@@ -89,6 +182,7 @@ nav a {
   align-items: center;
   flex-direction: column;
   background-color: #A6A6A6;
+  width: 100%;
 }
 
 .user-profile-container img {
@@ -101,6 +195,7 @@ nav a {
   width: 40%;
   justify-content: space-between;
 }
+
 .profile-info {
   display: flex;
   flex-direction: column;
@@ -115,6 +210,7 @@ nav a {
   gap: 0;
   width: 60%;
 }
+
 .profile-lists-toggle {
   display: flex;
   justify-content: center;
@@ -254,9 +350,9 @@ nav a {
 
 .stock-price{
   display: flex;
-  justify-content: center;
+  justify-content: end  ;
   align-items: center;
-  margin-left: 5%;
+  margin-left: 4%;
   width: 3%;
   text-align: left;
   
@@ -269,13 +365,16 @@ nav a {
   flex-direction: column-reverse;
   text-align: center;
   justify-content: center;
+
+  margin-top: 3px;
+  margin-left: 2px;
 }
 
 .stock-change{
   display: flex;
   justify-content: end;
   align-items: center;
-  margin-left: 5%;
+  margin-left: 4%;
   width: 2.8%;
 }
 
@@ -291,9 +390,36 @@ nav a {
   display: flex;
   justify-content: end;
   align-items: center;
-  margin-left: 5%;
+  margin-left: 4%;
   width: 3.5%;
 }
+
+.stock-sector{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-left: 4%;
+  width: 10%;
+}
+
+.stock-pe{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-left: 4%;
+  width: 3%;
+}
+.stock-exchange{
+  display: flex;
+  justify-content: center;
+  margin-left: 3%;
+  width: 3%;
+}
+
+.stock-exchange img{
+  width: 100%;
+}
+
 
 
 

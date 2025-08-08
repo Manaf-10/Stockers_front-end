@@ -21,7 +21,7 @@ const StockLists = () => {
     <div className="stocks-list-container">
       <h2>All stocks</h2>
       {stockList.data.map((stock) => {
-        const change = stock.price.change;
+        const change = stock.price.changePercent;
         let changeColor = "";
 
         if (change > 0) {
@@ -49,11 +49,14 @@ const StockLists = () => {
               {change}%
             </div>
             <div className="stock-volume">
-              {formatNumber(stock.price.volume)}
+              {formatNumber(stock.price.volume)} <div className="stock-currency"> {stock.market.currency}</div>
             </div>
             <div className="stock-market-cap">
-              {formatNumber(stock.market.marketCap)}
+              {formatNumber(stock.market.marketCap)} <div className="stock-currency"> {stock.market.currency}</div>
             </div>
+          <div className="stock-pe">{stock.market.peRatio}%</div>
+          <div className="stock-exchange"><img src={`${stock.market.exchange}.png`} alt={`${stock.market.exchange}`}/></div>
+            <div className="stock-sector">{stock.company.sector}</div>
           </div>
         );
       })}

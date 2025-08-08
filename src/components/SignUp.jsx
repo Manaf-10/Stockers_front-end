@@ -15,22 +15,41 @@ const SignUp = () => {
 
   const [formValues, setFormValues] = useState(initialState);
 
+
   const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+    if (e.target.name === "avatar") {
+      setFormValues({ ...formValues, avatar: e.target.files[0] });
+    } else {
+      setFormValues({ ...formValues, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (formValues.password !== formValues.confirmPassword) {
+      //append a messge to the (error msg) div (problem for another day)
+      return;
+    }
+
     await RegisterUser({
       username: formValues.username,
-      password: formValues.password,
       email: formValues.email,
+      password: formValues.password,
       confirmPassword: formValues.confirmPassword,
       avatar: formValues.avatar,
     });
+
     setFormValues(initialState);
     navigate("/sign-in");
   };
+
+  const isDisabled =
+    !formValues.username ||
+    !formValues.email ||
+    !formValues.password ||
+    !formValues.confirmPassword ||
+    formValues.password !== formValues.confirmPassword;
 
   return (
     <div className="background-container">
@@ -39,9 +58,7 @@ const SignUp = () => {
           <h1>Sign up</h1>
           <label className="image-upload" htmlFor="avatar">
             <img
-              src={
-                "https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg"
-              }
+              src="https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg"
               alt="upload avatar"
             />
           </label>
@@ -52,6 +69,7 @@ const SignUp = () => {
             style={{ display: "none" }}
             onChange={handleChange}
             className="img-upload"
+            accept="image/*"
           />
           <div className="input-wrapper">
             <input
@@ -87,7 +105,7 @@ const SignUp = () => {
           </div>
           <div className="input-wrapper">
             <input
-              placeholder="confirmPassword"
+              placeholder="confirm password"
               name="confirmPassword"
               type="password"
               onChange={handleChange}
@@ -96,16 +114,7 @@ const SignUp = () => {
               autoComplete="off"
             />
           </div>
-          <button
-            className="b-in"
-            disabled={
-              !formValues.firstname ||
-              !formValues.lastname ||
-              !formValues.email ||
-              (!formValues.password &&
-                formValues.password === formValues.confirmPassword)
-            }
-          >
+          <button className="b-in" disabled={isDisabled}>
             Sign up
           </button>
         </form>
