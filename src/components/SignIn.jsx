@@ -3,9 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import { SignInUser } from '../../services/Auth'
 
 const SignIn = ({ setUser , user }) => {
+
   const initialState = { username: '', password: '' }
   const [formValues, setFormValues] = useState(initialState)
+
   let navigate = useNavigate()
+
+
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.id]: e.target.value })
   }
@@ -14,11 +18,13 @@ const SignIn = ({ setUser , user }) => {
     e.preventDefault()
     if (!user) {
       const payload = await SignInUser(formValues)
-      setFormValues(initialState)
-      setUser(payload)
+     // setFormValues(initialState)
+      //setUser(payload) // there is a problem here and I can't find it 
       navigate('/')
     }
   }
+
+  
 
   return (
     <div className="background-container">
