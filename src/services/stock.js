@@ -4,6 +4,7 @@ import Client from './api'
 export const getStock = async (symbol) => {
   try {
     const response = await Client.get(`/stocks/${symbol}`)
+    console.log(response)
 
     const arr = []
     const dates = []
@@ -26,6 +27,8 @@ export const getStock = async (symbol) => {
         }
       }
     }
+    // console.log('dates: ' + dates)
+    // console.log('data: ' + arr)
     return {
       Dates: dates,
       data: arr

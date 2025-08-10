@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import 'chart.js/auto'
 import { Chart } from 'react-chartjs-2'
 import { getStock } from '../services/stock'
-import { data } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
 const StockGraph = () => {
@@ -11,16 +10,20 @@ const StockGraph = () => {
   useEffect(() => {
     const getStocks = async () => {
       const stockData = await getStock(symbol)
+      console.log(stockData)
       setData({
         labels: stockData.Dates,
         datasets: [
           {
-            label: 'Close Price',
+            label: 'stocks',
             data: stockData.data,
-            backgroundColor: 'rgba(75,192,192,0.4)',
-            borderColor: 'rgba(75,192,192,1)',
-            borderWidth: 1,
-            type: 'line'
+            borderColor: 'rgb(75, 192, 192)',
+            segment: {
+              borderColor: (ctx) =>
+                skipped(ctx, 'rgb(0,0,0,0.2)') || down(ctx, 'rgb(192,75,75)'),
+              borderDash: (ctx) => skipped(ctx, [6, 6])
+            },
+            spanGaps: true
           }
         ]
       })
