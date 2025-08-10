@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { NewPost } from "../../services/NewPost";
+import { NewPost } from "../services/NewPost";
 import { useState } from "react";
 
 const Posts = ({createPost}) => {
