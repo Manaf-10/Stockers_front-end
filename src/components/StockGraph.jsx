@@ -32,12 +32,13 @@ const StockGraph = () => {
   }, [symbol])
 
   const options = {
-    responsive: true,
-    interaction: { mode: 'index', intersect: false },
-    plugins: {
-      title: { display: true, text: `${symbol} — Close & Volume` }
-    }
+    fill: false,
+    interaction: {
+      intersect: false
+    },
+    radius: 0
   }
+
   if (!data) {
     return <div>Loading...</div>
   } else {
