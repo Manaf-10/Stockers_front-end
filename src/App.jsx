@@ -11,7 +11,7 @@ import StockGraph from './components/StockGraph'
 import UserPosts from './components/UserPosts'
 import Edit from './pages/Edit'
 import { useState, useEffect } from 'react'
-import { CheckSession } from '../services/Auth'
+import { CheckSession } from './services/Auth'
 
 const App = () => {
   const [user, setUser] = useState(null)

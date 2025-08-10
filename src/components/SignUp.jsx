@@ -1,55 +1,54 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { RegisterUser } from "../../services/auth";
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { RegisterUser } from '../services/Auth'
 
 const SignUp = () => {
-  let navigate = useNavigate();
+  let navigate = useNavigate()
 
   const initialState = {
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    avatar: null,
-  };
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    avatar: null
+  }
 
-  const [formValues, setFormValues] = useState(initialState);
-
+  const [formValues, setFormValues] = useState(initialState)
 
   const handleChange = (e) => {
-    if (e.target.name === "avatar") {
-      setFormValues({ ...formValues, avatar: e.target.files[0] });
+    if (e.target.name === 'avatar') {
+      setFormValues({ ...formValues, avatar: e.target.files[0] })
     } else {
-      setFormValues({ ...formValues, [e.target.name]: e.target.value });
+      setFormValues({ ...formValues, [e.target.name]: e.target.value })
     }
-  };
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    if (formValues.password !== formValues.confirmPassword) {
-      //append a messge to the (error msg) div (problem for another day)
-      return;
-    }
+    // if (formValues.password !== formValues.confirmPassword) {
+    //   //append a messge to the (error msg) div (problem for another day)
+    //   return
+    // }
+    console.log('form values ' + formValues)
 
     await RegisterUser({
       username: formValues.username,
       email: formValues.email,
       password: formValues.password,
-      confirmPassword: formValues.confirmPassword,
-      avatar: formValues.avatar,
-    });
+      avatar: formValues.avatar
+    })
 
-    setFormValues(initialState);
-    navigate("/sign-in");
-  };
+    setFormValues(initialState)
+    navigate('/sign-in')
+  }
 
   const isDisabled =
     !formValues.username ||
     !formValues.email ||
     !formValues.password ||
     !formValues.confirmPassword ||
-    formValues.password !== formValues.confirmPassword;
+    formValues.password !== formValues.confirmPassword
 
   return (
     <div className="background-container">
@@ -66,7 +65,7 @@ const SignUp = () => {
             type="file"
             id="avatar"
             name="avatar"
-            style={{ display: "none" }}
+            style={{ display: 'none' }}
             onChange={handleChange}
             className="img-upload"
             accept="image/*"
@@ -121,7 +120,7 @@ const SignUp = () => {
         <div className="error-msg"></div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SignUp;
+export default SignUp
