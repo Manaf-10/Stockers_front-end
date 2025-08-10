@@ -16,10 +16,12 @@ import { CheckSession } from './services/Auth'
 const App = () => {
   const [user, setUser] = useState(null)
   const checkToken = async () => {
-    let currentUser = await CheckSession()
-    const token = localStorage.getItem('token')
-    if (token) {
-      setUser(currentUser)
+    if (user) {
+      let currentUser = await CheckSession()
+      const token = localStorage.getItem('token')
+      if (token) {
+        setUser(currentUser)
+      }
     }
   }
 
@@ -28,31 +30,28 @@ const App = () => {
   }, [])
 
   /////////// we will need this //////////////
-  const handleLogOut = () => {
-    setUser(null)
-    localStorage.clear()
-  }
+
   /////////// we will need this //////////////
 
   return (
     <>
-      <Header />
+      <Header user={user} setUser={setUser} />
       <Routes>
         <Route path="sign-in" element={<SignIn setUser={setUser} />}>
           Sign in
         </Route>
-        <Route path="sign-up" element={<SignUp />}>
+        <Route path="sign-up" element={<SignUp setUser={setUser} />}>
           Sign up
         </Route>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/profile" element={<Profile />}></Route>
+        <Route path="/profile" element={<Profile user={user} />}></Route>
 
         <Route path="/posts" element={<Posts user={user} />}></Route>
 
         <Route path="/stocks" element={<StockLists />}></Route>
         <Route path="/stocks/:symbol" element={<StockGraph />}></Route>
         <Route path="/:username/posts" element={<UserPosts />}></Route>
-        <Route path="/profile/edit" element={<Edit />}></Route>
+        <Route path="/profile/edit" element={<Edit user={user} />}></Route>
       </Routes>
     </>
   )
