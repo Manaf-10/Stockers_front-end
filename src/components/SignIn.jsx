@@ -18,8 +18,8 @@ const SignIn = ({ setUser , user }) => {
     e.preventDefault()
     if (!user) {
       const payload = await SignInUser(formValues)
-     // setFormValues(initialState)
-      //setUser(payload) // there is a problem here and I can't find it 
+     setFormValues(initialState)
+      setUser(payload) // there is a problem here and I can't find it 
       navigate('/')
     }
   }
