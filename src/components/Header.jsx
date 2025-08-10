@@ -11,7 +11,7 @@ const Header = ({ user, setUser }) => {
   }
   return (
     <nav>
-      {user ? (
+      {localStorage.getItem("token") ? (
         <>
           <NavLink to="/">Home</NavLink>
           <button onClick={handleLogOut}>Log Out</button>
