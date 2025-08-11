@@ -15,7 +15,7 @@ const Profile = ({ user }) => {
       case "Lists":
         return <Listings />;
       case "Posts":
-        return <UserPosts />;
+        return <UserPosts userId={user._id} />;
       case "Logs":
         return <Logs users={user} />;
     }
