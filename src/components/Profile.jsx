@@ -30,7 +30,7 @@ const Profile = ({ user }) => {
       <div className="user-profile-container">
         <div className="user-profile">
           <img
-            src={`http://localhost:3000/public/${user.avatar}`}
+            src={`http://localhost:3000/public/avatars/${user.avatar}`}
             alt="user-image"
           />
           <div className="profile-info">

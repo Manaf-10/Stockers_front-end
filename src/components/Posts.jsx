@@ -26,19 +26,30 @@ const Posts = ({ user }) => {
   }, [])
 
   const handleChange = (e) => {
-    setPost({ ...post, [e.target.name]: e.target.value })
+    if(e.target.name === "img"){
+      setPost({...post, img: e.target.files[0]})
+    }
+    else{
+      setPost({ ...post, [e.target.name]: e.target.value })
+    }
+    
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const payload = await NewPost(post)
+    console.log(user.id)
+    const formData = new FormData();
+    formData.append("title", post.title)
+    formData.append("description", post.description)
+    formData.append("img", post.img)
+    formData.append("owner",user.id )
 
+    const payload = await NewPost(formData)
     console.log(payload)
     setPost(initialState)
     const updatedPosts = await GetPosts()
     setPosts(updatedPosts)
   }
-  console.log(user)
   if (user) {
     return (
       <>
@@ -53,10 +64,9 @@ const Posts = ({ user }) => {
               onChange={handleChange}
             />
             <input
-              type="text"
+              type="file"
               name={'img'}
               placeholder={'image'}
-              value={post.img}
               onChange={handleChange}
             />
             <textarea
@@ -79,7 +89,7 @@ const Posts = ({ user }) => {
         <div className="posts-list">
           {posts.map((po) => (
             <div key={po._id} className="post-card">
-              {po.img && <img src={po.img} alt={po.title} />}
+              {po.img && <img src={`http://localhost:3000/public/posts/${po.img}`} alt={po.title} />}
               <h3>{po.title}</h3>
               <p>{po.description}</p>
             </div>
