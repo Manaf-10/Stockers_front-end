@@ -1,21 +1,23 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 import './Logs.css'
 
 const Logs = ({ users }) => {
-  const [transactions, setTransactions] = useState([]);
+  const [transactions, setTransactions] = useState([])
 
   useEffect(() => {
     const fetchLogs = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/transactions/user/${users._id}`);
-        setTransactions(res.data);
+        const res = await axios.get(
+          `http://localhost:3000/transactions/user/${users._id}`
+        )
+        setTransactions(res.data)
       } catch (err) {
-        console.error(err);
+        console.error(err)
       }
-    };
-    if (users?._id) fetchLogs();
-  }, [users]);
+    }
+    if (users?._id) fetchLogs()
+  }, [users])
 
   return (
     <div className="logs-container">
@@ -29,7 +31,7 @@ const Logs = ({ users }) => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Logs;
+export default Logs
