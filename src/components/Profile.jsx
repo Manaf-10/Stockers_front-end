@@ -5,7 +5,7 @@ import Logs from './Logs'
 import { useNavigate } from 'react-router-dom'
 
 const Profile = ({ user }) => {
-  let thisUser = user.user
+  let thisUser = user
   const navigate = useNavigate()
   const [page, setpage] = useState('Posts')
 
@@ -16,16 +16,16 @@ const Profile = ({ user }) => {
       case 'Posts':
         return <UserPosts />
       case 'Logs':
-        return <Logs />
+        return <Logs users={thisUser}/>
     }
   }
 
   const changePage = (e) => {
-    //iam using inner text to get the innner content (doesnot makes sense to add an id or a name to the buttons)
     setpage(e.target.innerText)
   }
-
-  return (
+console.log(thisUser)
+  return thisUser ?(
+    <>
     <div className="user-profile-container">
       <div className="user-profile">
         <img src={`${thisUser.avatar}`} alt="user-image" />
@@ -43,6 +43,9 @@ const Profile = ({ user }) => {
       </div>
       {renderPage()}
     </div>
+    </>
+  ):(
+    <h4>loading...</h4>
   )
 }
 
