@@ -21,6 +21,7 @@ const StockLists = () => {
 
   const handleClick = (e, stock) => {
     setData(stock);
+    window.history.pushState({}, "", `stocks/${stock.symbol}`);
   };
   if (data) return <StockGraph stock={data} />;
 

@@ -9,6 +9,7 @@ import SignUp from "./components/SignUp";
 import StockLists from "./components/StockLists";
 import UserPosts from "./components/UserPosts";
 import Edit from "./pages/Edit";
+import StockGraph from "./components/StockGraph";
 import { useState, useEffect } from "react";
 import { CheckSession } from "./services/Auth";
 
@@ -44,12 +45,11 @@ const App = () => {
         </Route>
         <Route path="/" element={<Home />}></Route>
         <Route path="/profile" element={<Profile user={user} />}></Route>
-
         <Route path="/posts" element={<Posts user={user} />}></Route>
-
         <Route path="/stocks" element={<StockLists />}></Route>
         <Route path="/:username/posts" element={<UserPosts />}></Route>
         <Route path="/profile/edit" element={<Edit user={user} />}></Route>
+        <Route path="/stocks/:symbol" element={<StockGraph />}></Route>
       </Routes>
     </>
   );

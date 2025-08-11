@@ -14,7 +14,7 @@ const StockGraph = ({ stock }) => {
   const [data, setData] = useState(null);
   useEffect(() => {
     const getStocks = async () => {
-      const stockData = await getStock(symbol);
+      const stockData = await getStock(stock.symbol);
       console.log(stockData);
       setData({
         labels: stockData.Dates,
@@ -47,7 +47,22 @@ const StockGraph = ({ stock }) => {
   if (!data) {
     return <div>Loading...</div>;
   } else {
-    return <Chart type="line" data={data} options={options} />;
+    return (
+      <>
+        <div className="graph-header">
+          <h1>{stock.symbol}</h1>
+        </div>
+        <div className="graph-page">
+          <div className="graph-container">
+            <Chart type="line" data={data} options={options} />
+          </div>
+          <div className="buttons-container">
+            <button className="buy-button">Buy</button>
+            <button className="track-button">Track</button>
+          </div>
+        </div>
+      </>
+    );
   }
 };
 
