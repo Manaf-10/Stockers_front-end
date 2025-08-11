@@ -26,8 +26,8 @@ const Posts = ({ user }) => {
   }, [])
 
   const handleChange = (e) => {
-    setPost({ ...post, [e.target.name]: e.target.value })
-  }
+    setPost({ ...post, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -86,13 +86,16 @@ const Posts = ({ user }) => {
         </div>
       </>
     )
+
   } else {
     return (
       <>
         <h3>unathorized</h3>
       </>
-    )
+    );
   }
+
 }
 
 export default Posts
+

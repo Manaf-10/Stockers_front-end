@@ -1,25 +1,30 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { SignInUser } from '../services/Auth'
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { SignInUser } from "../services/Auth";
 
 const SignIn = ({ setUser }) => {
-  const initialState = { email: '', password: '' }
-  const [formValues, setFormValues] = useState(initialState)
-
-  let navigate = useNavigate()
+  const initialState = { email: "", password: "" };
+  const [formValues, setFormValues] = useState(initialState);
+  const [errorMsg, setErrorMsg] = useState(null);
+  let navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.id]: e.target.value })
-  }
+    setFormValues({ ...formValues, [e.target.id]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const payload = await SignInUser(formValues)
-    setFormValues(initialState)
-    setUser(payload)
-    navigate('/')
-  }
+    const payload = await SignInUser(formValues);
+    if (payload.msg) {
+      setErrorMsg(payload.msg);
+      return;
+    }
+
+    setFormValues(initialState);
+    setUser(payload);
+    navigate("/");
+  };
 
   return (
     <div className="background-container">
@@ -53,9 +58,10 @@ const SignIn = ({ setUser }) => {
             Sign In
           </button>
         </form>
+        <div className="error-msg">{errorMsg}</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SignIn
+export default SignIn;

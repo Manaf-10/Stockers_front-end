@@ -1,54 +1,53 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { RegisterUser } from '../services/Auth'
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { RegisterUser } from "../services/Auth";
 
 const SignUp = () => {
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const initialState = {
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    avatar: null
-  }
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    avatar: null,
+  };
 
-  const [formValues, setFormValues] = useState(initialState)
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [formValues, setFormValues] = useState(initialState);
 
   const handleChange = (e) => {
-    if (e.target.name === 'avatar') {
-      setFormValues({ ...formValues, avatar: e.target.files[0] })
+    if (e.target.name === "avatar") {
+      setFormValues({ ...formValues, avatar: e.target.files[0] });
     } else {
-      setFormValues({ ...formValues, [e.target.name]: e.target.value })
+      setFormValues({ ...formValues, [e.target.name]: e.target.value });
     }
-  }
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    // if (formValues.password !== formValues.confirmPassword) {
-    //   //append a messge to the (error msg) div (problem for another day)
-    //   return
-    // }
-    console.log('form values ' + formValues)
-
-    await RegisterUser({
+    let res = await RegisterUser({
       username: formValues.username,
       email: formValues.email,
       password: formValues.password,
-      avatar: formValues.avatar
-    })
+      avatar: formValues.avatar,
+    });
+    if (res.msg) {
+      setErrorMsg(res.msg);
+      return;
+    }
 
-    setFormValues(initialState)
-    navigate('/sign-in')
-  }
+    setFormValues(initialState);
+    navigate("/sign-in");
+  };
 
   const isDisabled =
     !formValues.username ||
     !formValues.email ||
     !formValues.password ||
     !formValues.confirmPassword ||
-    formValues.password !== formValues.confirmPassword
+    formValues.password !== formValues.confirmPassword;
 
   return (
     <div className="background-container">
@@ -65,7 +64,7 @@ const SignUp = () => {
             type="file"
             id="avatar"
             name="avatar"
-            style={{ display: 'none' }}
+            style={{ display: "none" }}
             onChange={handleChange}
             className="img-upload"
             accept="image/*"
@@ -117,10 +116,10 @@ const SignUp = () => {
             Sign up
           </button>
         </form>
-        <div className="error-msg"></div>
+        <div className="error-msg">{errorMsg}</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SignUp
+export default SignUp;

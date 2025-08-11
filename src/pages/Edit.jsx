@@ -1,43 +1,41 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { updateProfile } from '../services/Auth'
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { updateProfile } from "../services/Auth";
 
 const Edit = ({ user }) => {
-  let thisUser = user.user
-  console.log(thisUser)
-  console.log(user)
-  let navigate = useNavigate()
+  let thisUser = user.user;
+  let navigate = useNavigate();
 
   const initialState = {
     username: thisUser.username,
     email: thisUser.email,
-    password: '',
-    confirmPassword: '',
-    avatar: null
-  }
+    password: "",
+    confirmPassword: "",
+    avatar: null,
+  };
 
-  const [formValues, setFormValues] = useState(initialState)
+  const [formValues, setFormValues] = useState(initialState);
 
   const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value })
-  }
-  const isDisabled = formValues.password !== formValues.confirmPassword
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+  const isDisabled = formValues.password !== formValues.confirmPassword;
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     await updateProfile(thisUser.id, {
       username: formValues.username,
       email: formValues.email,
       password: formValues.password,
-      avatar: formValues.avatar
-    })
+      avatar: formValues.avatar,
+    });
 
-    setFormValues(initialState)
-    setUser(null)
-    localStorage.clear()
-    navigate('/sign-in')
-  }
+    setFormValues(initialState);
+    setUser(null);
+    localStorage.clear();
+    navigate("/sign-in");
+  };
   return (
     <div className="background-container">
       <div className="sign-form">
@@ -53,7 +51,7 @@ const Edit = ({ user }) => {
             type="file"
             id="avatar"
             name="avatar"
-            style={{ display: 'none' }}
+            style={{ display: "none" }}
             onChange={handleChange}
             className="img-upload"
             accept="image/*"
@@ -106,7 +104,7 @@ const Edit = ({ user }) => {
         <div className="error-msg"></div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Edit
+export default Edit;

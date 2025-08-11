@@ -1,17 +1,17 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ user, setUser }) => {
-  let navigate = useNavigate()
+  let navigate = useNavigate();
   const handleLogOut = () => {
-    setUser(null)
-    localStorage.clear()
-    navigate('/')
-  }
+    setUser(null);
+    localStorage.clear();
+    navigate("/");
+  };
   return (
     <nav>
-      {localStorage.getItem("token") ? (
+      {user ? (
         <>
           <NavLink to="/">Home</NavLink>
           <button onClick={handleLogOut}>Log Out</button>
@@ -48,7 +48,7 @@ const Header = ({ user, setUser }) => {
         </>
       )}
     </nav>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
