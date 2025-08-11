@@ -5,6 +5,11 @@ import { getStock } from '../services/stock'
 import { useParams } from 'react-router-dom'
 
 const StockGraph = () => {
+  const skipped = (ctx, value) =>
+    ctx.p0.skip || ctx.p1.skip ? value : undefined
+  const down = (ctx, value) =>
+    ctx.p0.parsed.y > ctx.p1.parsed.y ? value : undefined
+  
   const { symbol } = useParams()
   const [data, setData] = useState(null)
   useEffect(() => {
@@ -42,7 +47,7 @@ const StockGraph = () => {
   if (!data) {
     return <div>Loading...</div>
   } else {
-    return <Chart type="bar" data={data} options={options} />
+    return <Chart type="line" data={data} options={options} />
   }
 }
 
