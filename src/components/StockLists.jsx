@@ -1,6 +1,6 @@
-import React from "react";
+import { useState } from "react";
 import stockList from "./stocksList.json";
-import { Link } from "react-router-dom";
+import StockGraph from "./StockGraph";
 
 const formatNumber = (num) => {
   if (num >= 1_000_000_000_000) {
@@ -17,6 +17,13 @@ const formatNumber = (num) => {
 };
 
 const StockLists = () => {
+  const [data, setData] = useState(null);
+
+  const handleClick = (e, stock) => {
+    setData(stock);
+  };
+  if (data) return <StockGraph stock={data} />;
+
   return (
     <div className="stocks-list-container">
       <h2>All stocks</h2>
@@ -32,7 +39,11 @@ const StockLists = () => {
         }
         return (
           <>
-            <Link to={`/stocks/${stock.symbol}`}>
+            <div
+              to={`/stocks/${stock.symbol}`}
+              name={"stock"}
+              onClick={(e) => handleClick(e, stock)}
+            >
               <div className="stock-box" key={stock.symbol}>
                 <div className="stock-img">
                   <img src="google_icon.png" alt={`${stock.symbol} image`} />
@@ -53,7 +64,6 @@ const StockLists = () => {
                   {formatNumber(stock.market.marketCap)}{" "}
                   <div className="stock-currency"> {stock.market.currency}</div>
                 </div>
-
                 <div className="stock-pe">{stock.market.peRatio}%</div>
                 <div className="stock-exchange">
                   <img
@@ -63,7 +73,7 @@ const StockLists = () => {
                 </div>
                 <div className="stock-sector">{stock.company.sector}</div>
               </div>
-            </Link>
+            </div>
           </>
         );
       })}
