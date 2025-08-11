@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { NewPost } from '../services/NewPost'
+import axios from 'axios'
 
 const Posts = ({ user }) => {
   const initialState = { title: '', description: '', img: '' }
@@ -8,6 +9,20 @@ const Posts = ({ user }) => {
   let navigate = useNavigate()
   
   const [post, setPost] = useState(initialState)
+  const [posts, setPosts] = useState([])
+
+  useEffect(()=>{
+    const getPosts = async () => {
+      try {
+        let response = await axios.get('http://localhost:3000/posts')
+        setPosts(response.data)
+        console.log(response.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getPosts()
+  },[])
 
   const handleChange = (e) => {
     setPost({ ...post, [e.target.name]: e.target.value })
@@ -18,44 +33,12 @@ const Posts = ({ user }) => {
     const payload = await NewPost(post)
     console.log(payload)
     setPost(initialState)
-    navigate('/')
+    //navigate('/')
   }
   console.log(user)
-  // if (user) {
-  //   return (
-  //     <div className="container">
-  //       <form onSubmit={handleSubmit}>
-  //         <input
-  //           type="text"
-  //           name="title"
-  //           value={post.title}
-  //           onChange={handleChange}
-  //           placeholder="Title"
-  //         />
-  //         <input
-  //           type="text"
-  //           name="description"
-  //           value={post.description}
-  //           onChange={handleChange}
-  //           placeholder="Description"
-  //         />
-  //         <input
-  //           type="text"
-  //           name="img"
-  //           value={post.img}
-  //           onChange={handleChange}
-  //           placeholder="Image"
-  //         />
-  //         <button type="submit">Create Post</button>
-  //       </form>
-  //     </div>
-  //   )
-  // }
-
-
     if (localStorage.getItem("token")) {
-    // if (user) {
     return (
+      <>
       <div className='container'>
         <h1>Add A New post Listing</h1>
         <form className="c" onSubmit={handleSubmit}>
@@ -86,6 +69,19 @@ const Posts = ({ user }) => {
           <button type="submit">Submit</button>
         </form>
       </div>
+      <br />
+      <br />
+
+      <h1>posts:</h1>
+      {posts.map((po) => (
+        <div key={po._id}>
+          <h3>title: {po.title}</h3>
+          <p>img: {po.img}</p>
+          <p>description: {po.description}</p>
+        </div>
+      ))}
+
+      </>
     )
   } else {
     return (
