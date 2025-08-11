@@ -13,20 +13,20 @@ import { useState, useEffect } from "react";
 import { CheckSession } from "./services/Auth";
 
 const App = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null)
+
   const checkToken = async () => {
-    if (user) {
-      let currentUser = await CheckSession();
-      const token = localStorage.getItem("token");
-      if (token) {
-        setUser(currentUser);
-      }
-    }
-  };
+    const user = await CheckSession()
+    setUser(user)
+  }
 
   useEffect(() => {
-    checkToken();
-  }, []);
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
+
 
   /////////// we will need this //////////////
 
