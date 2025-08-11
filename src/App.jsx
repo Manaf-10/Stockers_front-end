@@ -28,10 +28,6 @@ const App = () => {
   }, [])
 
 
-  /////////// we will need this //////////////
-
-  /////////// we will need this //////////////
-
   return (
     <>
       <Header user={user} setUser={setUser} />
