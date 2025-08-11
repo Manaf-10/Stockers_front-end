@@ -2,8 +2,7 @@ import Client, { BASE_URL } from './api'
 
 export const NewPost = async (data) => {
   try {
-    const res = await Client.post(`/posts/new`, data)
-
+    const res = await Client.post(`/posts`, data)
     return res
   } catch (error) {
     throw error

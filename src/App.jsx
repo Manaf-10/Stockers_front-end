@@ -1,17 +1,16 @@
-import './App.css'
-import { Route, Routes } from 'react-router-dom'
-import Header from './components/Header'
-import Home from './pages/Home'
-import Profile from './components/Profile'
-import Posts from './components/Posts'
-import SignIn from './components/SignIn'
-import SignUp from './components/SignUp'
-import StockLists from './components/StockLists'
-import StockGraph from './components/StockGraph'
-import UserPosts from './components/UserPosts'
-import Edit from './pages/Edit'
-import { useState, useEffect } from 'react'
-import { CheckSession } from './services/Auth'
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Profile from "./components/Profile";
+import Posts from "./components/Posts";
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
+import StockLists from "./components/StockLists";
+import UserPosts from "./components/UserPosts";
+import Edit from "./pages/Edit";
+import { useState, useEffect } from "react";
+import { CheckSession } from "./services/Auth";
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -27,6 +26,7 @@ const App = () => {
       checkToken()
     }
   }, [])
+
 
   /////////// we will need this //////////////
 
@@ -48,12 +48,11 @@ const App = () => {
         <Route path="/posts" element={<Posts user={user} />}></Route>
 
         <Route path="/stocks" element={<StockLists />}></Route>
-        <Route path="/stocks/:symbol" element={<StockGraph />}></Route>
         <Route path="/:username/posts" element={<UserPosts />}></Route>
         <Route path="/profile/edit" element={<Edit user={user} />}></Route>
       </Routes>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
