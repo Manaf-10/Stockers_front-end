@@ -1,28 +1,28 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { NewPost } from '../services/NewPost'
+import { GetPosts } from '../services/GetPost'
+
 import axios from 'axios'
 
 const Posts = ({ user }) => {
   const initialState = { title: '', description: '', img: '' }
-
-  let navigate = useNavigate()
+  // let navigate = useNavigate()
   
   const [post, setPost] = useState(initialState)
   const [posts, setPosts] = useState([])
 
-  useEffect(()=>{
-    const getPosts = async () => {
+  useEffect(() => {
+    const fetchData = async () => {
       try {
-        let response = await axios.get('http://localhost:3000/posts')
-        setPosts(response.data)
-        console.log(response.data)
-      } catch (error) {
-        console.log(error)
+        const data = await GetPosts()
+        setPosts(data)
+      } catch (err) {
+        console.error(err)
       }
     }
-    getPosts()
-  },[])
+    fetchData()
+  }, [])
 
   const handleChange = (e) => {
     setPost({ ...post, [e.target.name]: e.target.value })
@@ -33,7 +33,8 @@ const Posts = ({ user }) => {
     const payload = await NewPost(post)
     console.log(payload)
     setPost(initialState)
-    //navigate('/')
+    const updatedPosts = await GetPosts() 
+    setPosts(updatedPosts)
   }
   console.log(user)
     if (localStorage.getItem("token")) {
