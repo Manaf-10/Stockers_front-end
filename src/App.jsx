@@ -9,29 +9,23 @@ import SignUp from "./components/SignUp";
 import StockLists from "./components/StockLists";
 import UserPosts from "./components/UserPosts";
 import Edit from "./pages/Edit";
-import StockGraph from "./components/StockGraph";
 import { useState, useEffect } from "react";
 import { CheckSession } from "./services/Auth";
 
 const App = () => {
   const [user, setUser] = useState(null);
+
   const checkToken = async () => {
-    if (user) {
-      let currentUser = await CheckSession();
-      const token = localStorage.getItem("token");
-      if (token) {
-        setUser(currentUser);
-      }
-    }
+    const user = await CheckSession();
+    setUser(user);
   };
 
   useEffect(() => {
-    checkToken();
+    const token = localStorage.getItem("token");
+    if (token) {
+      checkToken();
+    }
   }, []);
-
-  /////////// we will need this //////////////
-
-  /////////// we will need this //////////////
 
   return (
     <>
@@ -45,11 +39,12 @@ const App = () => {
         </Route>
         <Route path="/" element={<Home />}></Route>
         <Route path="/profile" element={<Profile user={user} />}></Route>
+
         <Route path="/posts" element={<Posts user={user} />}></Route>
+
         <Route path="/stocks" element={<StockLists />}></Route>
         <Route path="/:username/posts" element={<UserPosts />}></Route>
         <Route path="/profile/edit" element={<Edit user={user} />}></Route>
-        <Route path="/stocks/:symbol" element={<StockGraph />}></Route>
       </Routes>
     </>
   );

@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { NewPost } from '../services/NewPost'
@@ -26,19 +27,20 @@ const Posts = ({ user }) => {
   }, [])
 
   const handleChange = (e) => {
-    setPost({ ...post, [e.target.name]: e.target.value });
-  };
+    setPost({ ...post, [e.target.name]: e.target.value })
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = await NewPost(post)
+
     console.log(payload)
     setPost(initialState)
     const updatedPosts = await GetPosts()
     setPosts(updatedPosts)
   }
   console.log(user)
-  if (localStorage.getItem('token')) {
+  if (user) {
     return (
       <>
         <div className="container">
@@ -92,8 +94,9 @@ const Posts = ({ user }) => {
       <>
         <h3>unathorized</h3>
       </>
-    );
+    )
   }
+
 
 }
 
