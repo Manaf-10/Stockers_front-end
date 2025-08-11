@@ -9,7 +9,6 @@ import axios from 'axios'
 
 const Posts = ({ user }) => {
   const initialState = { title: '', description: '', img: '' }
-  // let navigate = useNavigate()
 
   const [post, setPost] = useState(initialState)
   const [posts, setPosts] = useState([])

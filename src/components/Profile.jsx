@@ -11,6 +11,7 @@ const Profile = ({ user }) => {
   const [page, setpage] = useState("Posts");
   const renderPage = (e) => {
     switch (page) {
+
       case "Lists":
         return <Listings />;
       case "Posts":
