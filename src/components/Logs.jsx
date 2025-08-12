@@ -18,30 +18,28 @@ const Logs = ({ user }) => {
   }, [])
 
   console.log(Transactions)
-  console.log(user)
 
-  if (user.id !== Transactions.map((x) => x.owner)) {
+  if (user.id !== Transactions.map((Transaction) => Transaction.owner)) {
     return (
-      <>
-        <h1>Posts:</h1>
-        <div className="posts-list">
-          {Transactions
-            .filter((po) => po.owner === user.id)
-            .map((po) => (
-              <div key={po._id} className="post-card">
-                {po.img && (
-                  <img
-                    src={`http://localhost:3000/public/posts/${po.img}`}
-                    alt={po.title}
-                  />
-                )}
-                <h3>{po.title}</h3>
-                <p>{po.description}</p>
-              </div>
-            ))}
-        </div>
-      </>
-    )
+    <div className="logs-container">
+      {Transactions.map((Transaction, index) => (
+  <div className="log" key={index}>
+    <img className={`${Transaction.type}-img`} src={'sold-icon.png'} alt={`${Transaction.symbol} icon`} />
+    <div className="symbol-date">
+      <div className="logs-symbol">{Transaction.symbol}</div>
+      <div>{Transaction.quantity} | {Transaction.date}</div>
+    </div>
+    <div>{Transaction.company}</div>
+    <div className="price-status">
+      <div className="price">{(parseFloat(Transaction.actionPrice) * parseInt(Transaction.quantity)).toFixed(2)}</div>
+      <div className={`status-${Transaction.type}`}>{Transaction.type}</div>
+    </div>
+  </div>
+))}
+
+    </div>
+  );
+
   } else {
     return (
       <>
@@ -52,3 +50,59 @@ const Logs = ({ user }) => {
 }
 
 export default Logs
+
+
+
+
+// return (
+//     <div className="logs-container">
+//       {logs.map((log, index) => (
+//   <div className="log" key={index}>
+//     <img className={`${log.status}-img`} src={'sold-icon.png'} alt={`${log.symbol} icon`} />
+//     <div className="symbol-date">
+//       <div className="logs-symbol">{log.symbol}</div>
+//       <div>{log.amount} | {log.date}</div>
+//     </div>
+//     <div>{log.company}</div>
+//     <div className="price-status">
+//       <div className="price">{(parseFloat(log.price) * parseInt(log.amount)).toFixed(2)}</div>
+//       <div className={`status-${log.status}`}>{log.status}</div>
+//     </div>
+//   </div>
+// ))}
+
+//     </div>
+//   );
+
+
+
+
+
+
+
+
+
+
+
+
+//       return (
+//       <>
+//         <h1>Logs:</h1>
+//         <div className="posts-list">
+//           {Transactions
+//             .filter((Transaction) => Transaction.owner === user.id)
+//             .map((Transaction) => (
+//               <div key={Transaction._id} className="post-card">
+//                 {Transaction.img && (
+//                   <img
+//                     src={`http://localhost:3000/public/posts/${Transaction.img}`}
+//                     alt={po.title}
+//                   />
+//                 )}
+//                 <h3>{Transaction.title}</h3>
+//                 <p>{Transaction.description}</p>
+//               </div>
+//             ))}
+//         </div>
+//       </>
+//     )
