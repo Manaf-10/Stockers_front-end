@@ -12,7 +12,7 @@ const Profile = ({ user }) => {
   const renderPage = (e) => {
     switch (page) {
       case 'Lists':
-        return <Listings />
+        return <Listings user={user} />
       case 'Posts':
         return <UserPosts user={user} />
       case 'Logs':
