@@ -1,5 +1,5 @@
 import Client from "./api";
-const temp = {
+const temp = {data:{
   "Meta Data": {
     "1. Information": "Daily Prices (open, high, low, close) and Volumes",
     "2. Symbol": "AAPL",
@@ -709,12 +709,12 @@ const temp = {
       "5. volume": "42432426",
     },
   },
-};
+}};
 
 export const getStock = async (symbol) => {
   try {
-    const response = await Client.get(`/stocks/${symbol}`);
-    // const response = temp;
+    // const response = await Client.get(`/stocks/${symbol}`);
+    const response = temp;
     console.log(response.data);
 
     const arr = [];

@@ -1,7 +1,12 @@
-import React from 'react'
-
+import { getTrackedList, getOwnedList } from '../services/lists'
+import { useEffect, useState } from 'react'
+//user
 const Listings = () => {
-  const items = Array.from({ length: 10 })
+  const [trackedStockes, setTrackedStock] = useState([])
+  const [ownedStockes, setownedStock] = useState([])
+
+  useEffect(() => {})
+
   return (
     <div className="listings">
       {items.map((_, index) => (

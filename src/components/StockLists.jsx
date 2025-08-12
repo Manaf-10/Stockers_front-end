@@ -16,14 +16,14 @@ const formatNumber = (num) => {
   }
 };
 
-const StockLists = () => {
+const StockLists = ({user}) => {
   const [data, setData] = useState(null);
 
   const handleClick = (e, stock) => {
     setData(stock);
     window.history.pushState({}, "", `stocks/${stock.symbol}`);
   };
-  if (data) return <StockGraph stock={data} />;
+  if (data) return <StockGraph stock={data} user={user} />;
 
   return (
     <div className="stocks-list-container">
