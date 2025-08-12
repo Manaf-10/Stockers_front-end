@@ -5,8 +5,6 @@ import Logs from './Logs'
 import { useNavigate } from 'react-router-dom'
 
 const Profile = ({ user }) => {
-  console.log(user)
-
   const navigate = useNavigate()
   const [page, setpage] = useState('Posts')
   const renderPage = (e) => {

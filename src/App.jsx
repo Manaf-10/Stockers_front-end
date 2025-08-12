@@ -14,7 +14,7 @@ import { CheckSession } from "./services/Auth";
 
 const App = () => {
   const [user, setUser] = useState(null);
-  console.log(user)
+
 
   const checkToken = async () => {
     const user = await CheckSession();
