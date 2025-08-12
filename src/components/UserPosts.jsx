@@ -1,18 +1,16 @@
 import { useEffect, useState } from 'react'
 // import { NewPost } from '../services/NewPost'
-import { GetPosts } from '../services/GetPost'
+import { userPosts } from '../services/GetPost'
 import './post.css'
 
 const UserPosts = ({ user }) => {
-  // const initialState = { title: '', description: '', img: '' }
-
-  // const [post, setPost] = useState(initialState)
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await GetPosts()
+        const data = await userPosts(user.id)
+        console.log(data)
         setPosts(data)
       } catch (err) {
         console.error(err)
@@ -20,50 +18,26 @@ const UserPosts = ({ user }) => {
     }
     fetchData()
   }, [])
-
-  // const handleChange = (e) => {
-  //   if (e.target.name === 'img') {
-  //     setPost({ ...post, img: e.target.files[0] })
-  //   } else {
-  //     setPost({ ...post, [e.target.name]: e.target.value })
-  //   }
-  // }
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault()
-  //   console.log(user.id)
-  //   const formData = new FormData()
-  //   formData.append('title', post.title)
-  //   formData.append('description', post.description)
-  //   formData.append('img', post.img)
-  //   formData.append('owner', user.id)
-
-  //   const payload = await NewPost(formData)
-  //   console.log(payload)
-  //   setPost(initialState)
-  //   const updatedPosts = await GetPosts()
-  //   setPosts(updatedPosts)
-  // }
   console.log(posts)
   console.log(user.id)
 
-  if (user.id !== posts.map((x)=>(x.owner)) ) {
+  if (user.id !== posts.map((post)=>(post.owner)) ) {
     return (
       <>
         <h1>Posts:</h1>
         <div className="posts-list">
           {posts
-            .filter((po) => po.owner === user.id)
-            .map((po) => (
-              <div key={po._id} className="post-card">
-                {po.img && (
+            .filter((posts) => posts.owner === user.id)
+            .map((posts) => (
+              <div key={posts._id} className="post-card">
+                {posts.img && (
                   <img
-                    src={`http://localhost:3000/public/posts/${po.img}`}
-                    alt={po.title}
+                    src={`http://localhost:3000/public/posts/${posts.img}`}
+                    alt={posts.title}
                   />
                 )}
-                <h3>{po.title}</h3>
-                <p>{po.description}</p>
+                <h3>{posts.title}</h3>
+                <p>{posts.description}</p>
               </div>
             ))}
         </div>
