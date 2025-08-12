@@ -1,23 +1,32 @@
 import { getTrackedList, getOwnedList } from '../services/lists'
 import { useEffect, useState } from 'react'
-//user
-const Listings = () => {
-  const [trackedStockes, setTrackedStock] = useState([])
-  const [ownedStockes, setownedStock] = useState([])
+import OwnedLists from './OwnedLists'
+import TrackedLists from './trackedLists'
 
-  useEffect(() => {})
+//user
+const Listings = ({user}) => {
+
+  const [page, setpage] = useState('tracked')
+  const renderPage = (e) => {
+    switch (page) {
+      case 'tracked':
+        return <TrackedLists  user={user} />
+      case 'owned':
+        return <OwnedLists user={user}  />
+    }
+  }
+  const changePage = (e) => {
+    setpage(e.target.innerText)
+  }
 
   return (
-    <div className="listings">
-      {items.map((_, index) => (
-        <div className="test" key={index}>
-          <img
-            src="https://w0.peakpx.com/wallpaper/852/116/HD-wallpaper-mahadev-lord-shiva-shiva-hindu-bhakti-devotional-god-thumbnail.jpg"
-            alt="something"
-          />
-        </div>
-      ))}
-    </div>
+    <>
+      <div className="profile-lists-toggle">
+        <button onClick={changePage}>tracked</button>
+        <button onClick={changePage}>owned</button>
+      </div>
+      {renderPage()}
+    </>
   )
 }
 

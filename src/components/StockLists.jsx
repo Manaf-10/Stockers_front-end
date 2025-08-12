@@ -39,11 +39,12 @@ const StockLists = ({ user }) => {
           changeColor = "#707070";
         }
         return (
-          <>
+
             <div
               to={`/stocks/${stock.symbol}`}
               name={"stock"}
               onClick={(e) => handleClick(e, stock)}
+              key={stock.symbol}
             >
               <div className="stock-box" key={stock.symbol}>
                 <div className="stock-img">
@@ -75,11 +76,12 @@ const StockLists = ({ user }) => {
                 <div className="stock-sector">{stock.company.sector}</div>
               </div>
             </div>
-          </>
         );
       })}
     </div>
   );
 };
+
+
 
 export default StockLists;

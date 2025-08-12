@@ -1,16 +1,15 @@
-import { useEffect, useState } from "react";
-import { NewPost } from "../services/NewPost";
-import { GetPosts } from "../services/GetPost";
-import "./post.css";
+import { useEffect, useState } from 'react'
+import { userPosts } from '../services/GetPost'
+import './post.css'
 
 const UserPosts = ({ user }) => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await GetPosts();
-        setPosts(data);
+        const data = await userPosts(user.id)
+        setPosts(data)
       } catch (err) {
         console.error(err);
       }
@@ -21,7 +20,7 @@ const UserPosts = ({ user }) => {
   return (
     <div className="listings">
       {posts.map((post) => (
-        <div className="test" key={post}>
+        <div className="test" key={post._id}>
           <img
             src={`http://localhost:3000/public/posts/${post.img}`}
             alt="something"
@@ -32,4 +31,5 @@ const UserPosts = ({ user }) => {
   );
 };
 
-export default UserPosts;
+export default UserPosts
+
