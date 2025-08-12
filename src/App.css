@@ -456,3 +456,61 @@ a img {
 .graph-header {
   margin-top: 0;
 }
+
+.posts-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-card {
+  margin-top: 5%;
+  background-color: #f4f4f4;
+  display: flex;
+  width: 70%;
+}
+
+.post-card img {
+  width: 42.52%;
+  aspect-ratio: 1/1;
+  margin-left: 5%;
+  margin-top: 5%;
+  margin-right: 2.5%;
+  margin-bottom: 5%;
+}
+
+.post-details {
+  background-color: #f4f4f4;
+  width: 45%;
+  color: white;
+  margin-right: 5%;
+  margin-top: 5%;
+  margin-left: 2.5%;
+  margin-bottom: 5%;
+}
+
+.post-owner {
+  height: 15%;
+  display: flex;
+  margin-bottom: 2.5%;
+  background-color: #dddddd;
+}
+
+.post-owner img {
+  margin: 0;
+  height: 100%;
+  width: 15%;
+  border-radius: 100%;
+}
+.post-owner p {
+  margin-left: 3%;
+}
+
+.post-text {
+  background-color: #dddddd;
+  margin-top: 2.5%;
+  height: 80%;
+}

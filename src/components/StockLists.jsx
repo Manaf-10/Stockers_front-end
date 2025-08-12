@@ -16,7 +16,7 @@ const formatNumber = (num) => {
   }
 };
 
-const StockLists = ({user}) => {
+const StockLists = ({ user }) => {
   const [data, setData] = useState(null);
 
   const handleClick = (e, stock) => {
