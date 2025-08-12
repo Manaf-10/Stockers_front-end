@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 body {
   margin: 0;
   padding: 0;
@@ -444,6 +444,20 @@ a {
   margin-top: 0;
 }
 
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  padding: 5rem;
+}
+
+.home-message {
+  width: 80%;
+  background-color: rgba(211, 205, 205, 0.733);
+  padding: 30px;
+  border-radius: 30px;
 
 .profile-nav{
   width: 10%;
