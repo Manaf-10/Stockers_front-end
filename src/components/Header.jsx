@@ -38,7 +38,7 @@ const Header = ({ user, setUser }) => {
             </button>
           </div>
           <NavLink className="nav-profile" to="/profile">
-            Profile
+            <img src={`http://localhost:3000/public/avatars/${user.avatar}`} alt="nav-pic"className="profile-nav" />
           </NavLink>
         </>
       ) : (
