@@ -20,7 +20,7 @@ export const addToTrackedList = async (userId, stock) => {
 
 export const getTrackedList = async (userId) => {
   try {
-    const response = await Client.get(`/lists/tracked/${user.id}`)
+    const response = await Client.get(`/lists/tracked/${userId}`)
     return response.data
   } catch (error) {
     console.log(error)
@@ -29,7 +29,7 @@ export const getTrackedList = async (userId) => {
 
 export const getOwnedList = async (userId) => {
   try {
-    const response = await Client.get(`/lists/owned/${user.id}`)
+    const response = await Client.get(`/lists/owned/${userId}`)
     return response.data
   } catch (error) {
     console.log(error)
