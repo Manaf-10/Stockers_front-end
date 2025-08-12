@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import './Logs.css'
 
 const Logs = ({ users }) => {
   const [transactions, setTransactions] = useState([]);
@@ -8,7 +7,9 @@ const Logs = ({ users }) => {
   useEffect(() => {
     const fetchLogs = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/transactions/user/${users._id}`);
+        const res = await axios.get(
+          `http://localhost:3000/transactions/user/${users._id}`
+        );
         setTransactions(res.data);
       } catch (err) {
         console.error(err);
@@ -19,13 +20,15 @@ const Logs = ({ users }) => {
 
   return (
     <div className="logs-container">
-      {transactions.map((t) => (
-        <div key={t._id} className="log-card">
-          <h4>{t.symbol}</h4>
-          <p>Type: {t.type}</p>
-          <p>Quantity: {t.quantity}</p>
-          <p>Price: ${t.actionPrice}</p>
-          <p className="log-date">{new Date(t.createdAt).toLocaleString()}</p>
+      {transactions.map((transaction) => (
+        <div key={transaction._id} className="log-card">
+          <h4>{transaction.symbol}</h4>
+          <p>Type: {transaction.type}</p>
+          <p>Quantity: {transaction.quantity}</p>
+          <p>Price: ${transaction.actionPrice}</p>
+          <p className="log-date">
+            {new Date(transaction.createdAt).toLocaleString()}
+          </p>
         </div>
       ))}
     </div>

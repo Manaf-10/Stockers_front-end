@@ -33,12 +33,11 @@ const SignUp = () => {
     formData.append("email", formValues.email);
     formData.append("password", formValues.password);
     formData.append("avatar", formValues.avatar);
-
     let res = await RegisterUser(formData);
-    // if (res.msg) {
-    //   setErrorMsg(res.msg);
-    //   return errorMsg;
-    // }
+    if (res.msg) {
+      setErrorMsg(res.msg);
+      return errorMsg;
+    }
 
     setFormValues(initialState);
     navigate("/sign-in");
