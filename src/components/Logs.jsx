@@ -3,13 +3,13 @@ import { GetTransaction } from '../services/GetTransaction'
 import './post.css'
 
 const Logs = ({ user }) => {
-  const [posts, setPosts] = useState([])
+  const [Transactions, setTransactions] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await GetTransaction()
-        setPosts(data)
+        const data = await GetTransaction(user.id)
+        setTransactions(data)
       } catch (err) {
         console.error(err)
       }
@@ -17,15 +17,15 @@ const Logs = ({ user }) => {
     fetchData()
   }, [])
 
-  console.log(posts)
+  console.log(Transactions)
   console.log(user)
 
-  if (user.id !== posts.map((x)=>(x.owner)) ) {
+  if (user.id !== Transactions.map((x) => x.owner)) {
     return (
       <>
         <h1>Posts:</h1>
         <div className="posts-list">
-          {posts
+          {Transactions
             .filter((po) => po.owner === user.id)
             .map((po) => (
               <div key={po._id} className="post-card">

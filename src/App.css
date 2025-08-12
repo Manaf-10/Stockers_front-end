@@ -12,14 +12,15 @@ body {
 nav {
   background-color: black;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: left;
   position: sticky;
   top: 0;
   height: 65px;
 }
 
 .search {
-  margin-left: 31%;
+  margin-left: 21%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -74,11 +75,12 @@ nav {
 }
 
 nav a {
-  margin-left: 5px;
+  margin-left: 0.3%;
 }
 
-.nav-profile {
+.profile-nav {
   margin-left: auto;
+  margin-right: 1%;
 }
 
 /*author https://uiverse.io/ahmed150up/tiny-yak-9*/
@@ -416,8 +418,19 @@ nav a {
 }
 
 a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
+  width: 5%;
+  font-size: 100%;
 }
+
+a img {
+  width: 100%;
+  height: 100%;
+}
+
 .graph-page {
   width: 100%;
   height: 50%;
@@ -442,9 +455,4 @@ a {
 
 .graph-header {
   margin-top: 0;
-}
-
-
-.profile-nav{
-  width: 10%;
 }
