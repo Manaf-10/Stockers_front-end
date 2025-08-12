@@ -1,38 +1,54 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from 'react'
+import { GetTransaction } from '../services/GetTransaction'
+import './post.css'
 
-const Logs = ({ users }) => {
-  const [transactions, setTransactions] = useState([]);
+const Logs = ({ user }) => {
+  const [Transactions, setTransactions] = useState([])
 
   useEffect(() => {
-    const fetchLogs = async () => {
+    const fetchData = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:3000/transactions/user/${users._id}`
-        );
-        setTransactions(res.data);
+        const data = await GetTransaction(user.id)
+        setTransactions(data)
       } catch (err) {
-        console.error(err);
+        console.error(err)
       }
-    };
-    if (users?._id) fetchLogs();
-  }, [users]);
+    }
+    fetchData()
+  }, [])
 
-  return (
-    <div className="logs-container">
-      {transactions.map((transaction) => (
-        <div key={transaction._id} className="log-card">
-          <h4>{transaction.symbol}</h4>
-          <p>Type: {transaction.type}</p>
-          <p>Quantity: {transaction.quantity}</p>
-          <p>Price: ${transaction.actionPrice}</p>
-          <p className="log-date">
-            {new Date(transaction.createdAt).toLocaleString()}
-          </p>
+  console.log(Transactions)
+  console.log(user)
+
+  if (user.id !== Transactions.map((x) => x.owner)) {
+    return (
+      <>
+        <h1>Posts:</h1>
+        <div className="posts-list">
+          {Transactions
+            .filter((po) => po.owner === user.id)
+            .map((po) => (
+              <div key={po._id} className="post-card">
+                {po.img && (
+                  <img
+                    src={`http://localhost:3000/public/posts/${po.img}`}
+                    alt={po.title}
+                  />
+                )}
+                <h3>{po.title}</h3>
+                <p>{po.description}</p>
+              </div>
+            ))}
         </div>
-      ))}
-    </div>
-  );
-};
+      </>
+    )
+  } else {
+    return (
+      <>
+        <h3>no logs yet</h3>
+      </>
+    )
+  }
+}
 
-export default Logs;
+export default Logs

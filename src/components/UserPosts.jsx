@@ -1,19 +1,21 @@
-import { useEffect, useState } from "react";
-import { NewPost } from "../services/NewPost";
-import { GetPosts } from "../services/GetPost";
-import "./post.css";
+import { useEffect, useState } from 'react'
+import { userPosts } from '../services/GetPost'
+import './post.css'
 
 const UserPosts = ({ user }) => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await GetPosts();
-        setPosts(data);
+        const data = await userPosts(user.id)
+        console.log(data)
+        setPosts(data)
+
       } catch (err) {
         console.error(err);
       }
+
     };
     fetchData();
   }, []);
@@ -32,4 +34,5 @@ const UserPosts = ({ user }) => {
   );
 };
 
-export default UserPosts;
+export default UserPosts
+

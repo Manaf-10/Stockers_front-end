@@ -16,7 +16,7 @@ const Profile = ({ user }) => {
       case 'Posts':
         return <UserPosts user={user} />
       case 'Logs':
-        return <Logs users={user} />
+        return <Logs user={user} />
     }
   }
 
