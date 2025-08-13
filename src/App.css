@@ -245,7 +245,7 @@ nav a {
   justify-content: space-around;
 }
 
-.status-Received {
+.status-buy {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -256,7 +256,7 @@ nav a {
   border-radius: 10px;
 }
 
-.status-Sell {
+.status-sell {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -484,3 +484,55 @@ a img {
   margin-top: 2.5%;
   height: 80%;
 }
+
+/* ////////// you can work from here Feras :) /////////// */
+
+.upLoadPhoto{
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: center;
+  width: 250px;
+  height: 190px;
+  border: 2px dashed #ccc;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  color: #404040;
+  cursor: pointer;
+  max-width: 190px;
+}
+
+.aaaaa {
+  height: 300px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, .2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  gap: 5px;
+  background-color: rgba(0, 110, 255, 0.041);
+}
+
+.input-group {
+  flex: 1;
+  width: 100%;
+  border: 2px dashed royalblue;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.input-group svg {
+  height: 100px;
+}
+
+.input-group p {
+  text-align: center;
+  color: black;
+}
+

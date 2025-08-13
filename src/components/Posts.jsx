@@ -51,7 +51,7 @@ const Posts = ({ user }) => {
   } else {
     return (
       <>
-        <h3>unathorized</h3>
+        <h3>No Postes</h3>
       </>
     );
   }

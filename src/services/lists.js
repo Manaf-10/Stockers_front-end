@@ -2,6 +2,7 @@ import Client from './api'
 
 export const addToOwnedList = async (userId, stock) => {
   try {
+    console.log(userId + '' + stock)
     const res = await Client.post(`/lists/owned/${userId}`, stock)
     return res
   } catch (error) {
@@ -30,6 +31,24 @@ export const getTrackedList = async (userId) => {
 export const getOwnedList = async (userId) => {
   try {
     const response = await Client.get(`/lists/owned/${userId}`)
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const deleteOwned = async (userId, symbol) => {
+  try {
+    const response = await Client.put(`/lists/owned/${userId}`, symbol)
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const deleteTracked = async (userId, symbol) => {
+  try {
+    const response = await Client.put(`/lists/tracked/${userId}`, symbol)
     return response.data
   } catch (error) {
     console.log(error)
