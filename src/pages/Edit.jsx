@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { updateProfile } from "../services/Auth";
 
 const Edit = ({ user, handleLogOut }) => {
+const Edit = ({ user, handleLogOut }) => {
   // let thisUser = user.user;
 
   console.log(user);

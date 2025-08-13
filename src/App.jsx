@@ -57,6 +57,10 @@ const App = () => {
           element={<Edit user={user} handleLogOut={handleLogOut} />}
         ></Route>
         <Route
+          path="/profile/edit"
+          element={<Edit user={user} handleLogOut={handleLogOut} />}
+        ></Route>
+        <Route
           path="/posts/upload"
           element={<UploadPost user={user} />}
         ></Route>
