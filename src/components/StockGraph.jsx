@@ -2,23 +2,29 @@ import { useEffect, useState } from 'react'
 import 'chart.js/auto'
 import { Chart } from 'react-chartjs-2'
 import { getStock } from '../services/stock'
-import { useParams } from 'react-router-dom'
-import { addToOwnedList, addToTrackedList } from '../services/lists'
+import { useNavigate, useParams } from 'react-router-dom'
+import {
+  addToOwnedList,
+  addToTrackedList,
+  getOwnedList,
+  getTrackedList
+} from '../services/lists'
 import { createTransaction } from '../services/transaction'
 
-const StockGraph = ({ stock, user }) => {
+const StockGraph = ({ stock, user, setStockData }) => {
   const skipped = (ctx, value) =>
     ctx.p0.skip || ctx.p1.skip ? value : undefined
   const down = (ctx, value) =>
     ctx.p0.parsed.y > ctx.p1.parsed.y ? value : undefined
 
-  const { symbol } = useParams()
   const [data, setData] = useState(null)
   const [latestPrice, setLatestPrice] = useState(null)
+  const [isTracked, setIsTracked] = useState(false)
+  const [toggle, setToggle] = useState(false)
+
   useEffect(() => {
     const getStocks = async () => {
       const stockData = await getStock(stock.symbol)
-      console.log(stockData)
 
       setData({
         labels: stockData.Dates,
@@ -38,8 +44,22 @@ const StockGraph = ({ stock, user }) => {
       })
       setLatestPrice(stockData.data[stockData.data.length - 1])
     }
+    checkTracked()
+
     getStocks()
-  }, [symbol])
+  }, [toggle])
+
+  const checkTracked = async () => {
+    const tracked = await getTrackedList(user.id)
+    tracked.find((el) => {
+      if (el.symbol === stock.symbol) {
+        setIsTracked(true)
+        return
+      }
+    })
+  }
+
+  console.log('is tracked is ' + isTracked)
 
   const handleBuy = async () => {
     try {
@@ -74,6 +94,7 @@ const StockGraph = ({ stock, user }) => {
         amount: 0
       })
       console.log(`Tracking ${stock.symbol}`)
+      setToggle(!toggle)
     } catch (error) {
       console.error(error)
     }
@@ -103,8 +124,21 @@ const StockGraph = ({ stock, user }) => {
             <button className="buy-button" onClick={handleBuy}>
               Buy
             </button>
-            <button className="track-button" onClick={handleTrack}>
-              Track
+            {isTracked ? (
+              <button disabled>Already Tracked</button>
+            ) : (
+              <>
+                <button className="track-button" onClick={handleTrack}>
+                  Track
+                </button>
+              </>
+            )}
+            <button
+              onClick={() => {
+                setStockData(null)
+              }}
+            >
+              back
             </button>
           </div>
         </div>
