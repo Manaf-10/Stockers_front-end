@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GetPosts } from "../services/GetPost";
-import "./post.css";
 
 const Posts = ({ user }) => {
   const [posts, setPosts] = useState([]);

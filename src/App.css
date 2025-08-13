@@ -8,79 +8,49 @@ body {
     sans-serif;
   overflow-x: hidden;
 }
+.nav-bar-links {
+  display: flex;
+  width: 30%;
+}
+.nav-bar-links a {
+  margin-left: 10%;
+}
+.btn.dropdown-toggle::after {
+  display: none !important;
+}
+.dropdown {
+  margin-left: 24%;
+}
+
+.dropdown-item {
+  display: flex !important;
+  justify-content: center;
+  color: black;
+}
+
+.dropdown-menu.show {
+  margin-right: 0 !important;
+}
+
+.dropdown-item a {
+  text-decoration: none;
+  color: black;
+}
 
 nav {
   background-color: black;
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: start;
+  align-items: center;
   position: sticky;
   top: 0;
   height: 65px;
 }
 
-.search {
-  margin-left: 21%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-}
-
-.search__input {
-  font-family: inherit;
-  font-size: inherit;
-  background-color: #f4f2f2;
-  border: none;
-  color: #646464;
-  padding: 0.7rem 1rem;
-  border-radius: 30px;
-  transition: all ease-in-out 0.5s;
-  margin-right: -2rem;
-}
-
-.search__input:hover,
-.search__input:focus {
-  box-shadow: 0 0 1em #00000013;
-}
-
-.search__input:focus {
-  outline: none;
-  background-color: #f0eeee;
-}
-
-.search__input::-webkit-input-placeholder {
-  font-weight: 100;
-  color: #ccc;
-}
-
-.search__input:focus + .search__button {
-  background-color: #f0eeee;
-}
-
-.search__button {
-  border: none;
-  background-color: #f4f2f2;
-  margin-top: 0.1em;
-}
-
-.search__button:hover {
-  cursor: pointer;
-}
-
-.search__icon {
-  height: 1.3em;
-  width: 1.3em;
-  fill: #b4b4b4;
-}
-
 nav a {
-  margin-left: 0.3%;
-}
-
-.profile-nav {
-  margin-left: auto;
-  margin-right: 1%;
+  text-decoration: none;
+  color: white;
 }
 
 /*author https://uiverse.io/ahmed150up/tiny-yak-9*/

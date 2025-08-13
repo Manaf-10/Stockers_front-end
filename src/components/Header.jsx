@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
-
+import DropDown from "./DropDown";
 const Header = ({ user, setUser }) => {
   let navigate = useNavigate();
   const handleLogOut = () => {
@@ -14,19 +14,13 @@ const Header = ({ user, setUser }) => {
     <nav>
       {user ? (
         <>
-          <NavLink to="/">Home</NavLink>
-          <NavLink onClick={handleLogOut}>Log Out</NavLink>
-          <NavLink to="/posts">posts</NavLink>
-          <NavLink to="/stocks">Stocks</NavLink>
-          <NavLink to="/posts/upload">upload post</NavLink>
+          <div className="nav-bar-links">
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/posts">posts</NavLink>
+            <NavLink to="/stocks">Stocks</NavLink>
+          </div>
 
-          <SearchBar />
-          <NavLink to="/profile" className="profile-nav">
-            <img
-              src={`http://localhost:3000/public/avatars/${user.avatar}`}
-              alt="nav-pic"
-            />
-          </NavLink>
+          <DropDown user={user} handleLogOut={handleLogOut} />
         </>
       ) : (
         <>

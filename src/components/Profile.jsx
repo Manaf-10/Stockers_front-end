@@ -1,26 +1,26 @@
-import { use, useState } from 'react'
-import UserPosts from './UserPosts'
-import Listings from './Listings'
-import Logs from './Logs'
-import { useNavigate } from 'react-router-dom'
+import { useState } from "react";
+import UserPosts from "./UserPosts";
+import Listings from "./Listings";
+import Logs from "./Logs";
+import { useNavigate } from "react-router-dom";
 
 const Profile = ({ user }) => {
-  const navigate = useNavigate()
-  const [page, setpage] = useState('Posts')
+  const navigate = useNavigate();
+  const [page, setpage] = useState("Posts");
   const renderPage = (e) => {
     switch (page) {
-      case 'Lists':
-        return <Listings user={user} />
-      case 'Posts':
-        return <UserPosts user={user} />
-      case 'Logs':
-        return <Logs user={user} />
+      case "Lists":
+        return <Listings user={user} />;
+      case "Posts":
+        return <UserPosts user={user} />;
+      case "Logs":
+        return <Logs user={user} />;
     }
-  }
+  };
 
   const changePage = (e) => {
-    setpage(e.target.innerText)
-  }
+    setpage(e.target.innerText);
+  };
 
   return user ? (
     <>
@@ -32,7 +32,7 @@ const Profile = ({ user }) => {
           />
           <div className="profile-info">
             <div className="user-name">{user.username}</div>
-            <button onClick={() => navigate('/profile/edit')}>
+            <button onClick={() => navigate("/profile/edit")}>
               Edit profile
             </button>
           </div>
@@ -47,7 +47,7 @@ const Profile = ({ user }) => {
     </>
   ) : (
     <h4>loading...</h4>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

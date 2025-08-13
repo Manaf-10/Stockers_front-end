@@ -39,49 +39,46 @@ const StockLists = ({ user }) => {
           changeColor = "#707070";
         }
         return (
-
-            <div
-              to={`/stocks/${stock.symbol}`}
-              name={"stock"}
-              onClick={(e) => handleClick(e, stock)}
-              key={stock.symbol}
-            >
-              <div className="stock-box" key={stock.symbol}>
-                <div className="stock-img">
-                  <img src="google_icon.png" alt={`${stock.symbol} image`} />
-                </div>
-                <div className="stock-symbol">{stock.symbol}</div>
-                <div className="stock-price">
-                  {stock.price.current.toFixed(2)}
-                </div>
-                <div className="stock-currency">{stock.market.currency}</div>
-                <div className="stock-change" style={{ color: changeColor }}>
-                  {change}%
-                </div>
-                <div className="stock-volume">
-                  {formatNumber(stock.price.volume)}{" "}
-                  <div className="stock-currency"> {stock.market.currency}</div>
-                </div>
-                <div className="stock-market-cap">
-                  {formatNumber(stock.market.marketCap)}{" "}
-                  <div className="stock-currency"> {stock.market.currency}</div>
-                </div>
-                <div className="stock-pe">{stock.market.peRatio}%</div>
-                <div className="stock-exchange">
-                  <img
-                    src={`${stock.market.exchange}.png`}
-                    alt={`${stock.market.exchange}`}
-                  />
-                </div>
-                <div className="stock-sector">{stock.company.sector}</div>
+          <div
+            to={`/stocks/${stock.symbol}`}
+            name={"stock"}
+            onClick={(e) => handleClick(e, stock)}
+            key={stock.symbol}
+          >
+            <div className="stock-box" key={stock.symbol}>
+              <div className="stock-img">
+                <img src="google_icon.png" alt={`${stock.symbol} image`} />
               </div>
+              <div className="stock-symbol">{stock.symbol}</div>
+              <div className="stock-price">
+                {stock.price.current.toFixed(2)}
+              </div>
+              <div className="stock-currency">{stock.market.currency}</div>
+              <div className="stock-change" style={{ color: changeColor }}>
+                {change}%
+              </div>
+              <div className="stock-volume">
+                {formatNumber(stock.price.volume)}{" "}
+                <div className="stock-currency"> {stock.market.currency}</div>
+              </div>
+              <div className="stock-market-cap">
+                {formatNumber(stock.market.marketCap)}{" "}
+                <div className="stock-currency"> {stock.market.currency}</div>
+              </div>
+              <div className="stock-pe">{stock.market.peRatio}%</div>
+              <div className="stock-exchange">
+                <img
+                  src={`${stock.market.exchange}.png`}
+                  alt={`${stock.market.exchange}`}
+                />
+              </div>
+              <div className="stock-sector">{stock.company.sector}</div>
             </div>
+          </div>
         );
       })}
     </div>
   );
 };
-
-
 
 export default StockLists;
