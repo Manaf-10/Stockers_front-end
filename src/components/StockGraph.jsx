@@ -11,7 +11,7 @@ import {
 } from '../services/lists'
 import { createTransaction } from '../services/transaction'
 
-const StockGraph = ({ stock, user, setStockData }) => {
+const StockGraph = ({ stock, user, setStockData, setShowGraph }) => {
   const skipped = (ctx, value) =>
     ctx.p0.skip || ctx.p1.skip ? value : undefined
   const down = (ctx, value) =>
@@ -107,7 +107,14 @@ const StockGraph = ({ stock, user, setStockData }) => {
     },
     radius: 0
   }
-  console.log(stock)
+
+  const handleBack = () => {
+    console.log('No more stock! Go back!')
+    setData(null)
+    setShowGraph(false)
+    window.history.pushState({}, '', `/stocks`)
+  }
+  console.log(data)
   if (!data) {
     return <div>Loading...</div>
   } else {
@@ -133,13 +140,7 @@ const StockGraph = ({ stock, user, setStockData }) => {
                 </button>
               </>
             )}
-            <button
-              onClick={() => {
-                setStockData(null)
-              }}
-            >
-              back
-            </button>
+            <button onClick={handleBack}>back</button>
           </div>
         </div>
       </>
