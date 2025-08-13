@@ -1,49 +1,48 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { updateProfile } from "../services/Auth";
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { updateProfile } from '../services/Auth'
 
-const Edit = ({ user, handleLogOut }) => {
 const Edit = ({ user, handleLogOut }) => {
   // let thisUser = user.user;
 
-  console.log(user);
-  const navigate = useNavigate();
+  console.log(user)
+  const navigate = useNavigate()
 
   const initialState = {
     username: user.username,
     email: user.email,
-    password: "",
-    confirmPassword: "",
-    avatar: null,
-  };
+    password: '',
+    confirmPassword: '',
+    avatar: null
+  }
 
-  const [formValues, setFormValues] = useState(initialState);
+  const [formValues, setFormValues] = useState(initialState)
 
   const handleChange = (e) => {
-    if (e.target.name === "avatar") {
-      setFormValues({ ...formValues, avatar: e.target.files[0] });
-      console.log(e.target.files[0]);
+    if (e.target.name === 'avatar') {
+      setFormValues({ ...formValues, avatar: e.target.files[0] })
+      console.log(e.target.files[0])
     } else {
-      setFormValues({ ...formValues, [e.target.name]: e.target.value });
+      setFormValues({ ...formValues, [e.target.name]: e.target.value })
     }
-  };
-  const isDisabled = formValues.password !== formValues.confirmPassword;
+  }
+  const isDisabled = formValues.password !== formValues.confirmPassword
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const formData = new FormData();
-    formData.append("username", formValues.username);
-    formData.append("email", formValues.email);
-    formData.append("avatar", formValues.avatar);
-    console.log(avatar);
+    const formData = new FormData()
+    formData.append('username', formValues.username)
+    formData.append('email', formValues.email)
+    formData.append('avatar', formValues.avatar)
+    console.log(avatar)
 
-    await updateProfile(user.id, formData);
+    await updateProfile(user.id, formData)
 
-    setFormValues(initialState);
-    handleLogOut();
-    navigate("/");
-  };
+    setFormValues(initialState)
+    handleLogOut()
+    navigate('/')
+  }
   return (
     <div className="background-container">
       <div className="sign-form">
@@ -59,7 +58,7 @@ const Edit = ({ user, handleLogOut }) => {
             type="file"
             id="avatar"
             name="avatar"
-            style={{ display: "none" }}
+            style={{ display: 'none' }}
             onChange={handleChange}
             className="img-upload"
             accept="image/*"
@@ -112,7 +111,7 @@ const Edit = ({ user, handleLogOut }) => {
         <div className="error-msg"></div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Edit;
+export default Edit
