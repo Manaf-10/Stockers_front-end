@@ -1,37 +1,50 @@
-import { useState } from 'react'
-import { NewPost } from '../services/Post'
+import { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import { updateProfile } from '../services/Auth'
+import { GetEditPost, EditPosts } from '../services/Post'
 
-const UploadPost = ({ user }) => {
-  const initialState = { title: '', description: '', img: '' }
+const EditPost = ({ user }) => {
+  let navigate = useNavigate()
+  const initialState = {
+    title: '',
+    description: ''
+  }
+  const [post, setPost] = useState()
 
-  const [post, setPost] = useState(initialState)
-  const handleChange = (e) => {
-    if (e.target.name === 'img') {
-      setPost({ ...post, img: e.target.files[0] })
-    } else {
-      setPost({ ...post, [e.target.name]: e.target.value })
+  const { post_id } = useParams()
+  console.log(post_id)
+
+  useEffect(() => {
+    const getPost = async () => {
+      const res = await GetEditPost(post_id)
+      console.log(res.data)
+      setPost(res.data.posts)
     }
+    getPost()
+  }, [post_id])
+
+  const handleChange = (e) => {
+    setPost({ ...post, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(user.id)
-    const formData = new FormData()
-    formData.append('title', post.title)
-    formData.append('description', post.description)
-    formData.append('img', post.img)
-    formData.append('owner', user.id)
 
-    const payload = await NewPost(formData)
-    console.log(payload)
+    await EditPosts(post_id, {
+      title: post.title,
+      description: post.description
+    })
+
     setPost(initialState)
+
+    navigate('/profile')
   }
 
-  if (user) {
+  if (user && post) {
     return (
       <>
         <div className="upload-container">
-          <h1>Create a New Post</h1>
+          <h1>Edit a New Post</h1>
           <form className="sign-form" onSubmit={handleSubmit}>
             <div className="input-wrapper">
               <input
@@ -68,7 +81,6 @@ const UploadPost = ({ user }) => {
                 <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3" />
                 <polyline points="16 16 12 12 8 16" />
               </svg>
-
             </div>
             <textarea
               name={'description'}
@@ -90,4 +102,4 @@ const UploadPost = ({ user }) => {
   } else return <h3>unathorized</h3>
 }
 
-export default UploadPost
+export default EditPost
