@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { GetPosts } from "../services/GetPost";
-import "./post.css";
+import { useEffect, useState } from 'react'
+import { GetPosts,NewPost } from '../services/Post'
+import './post.css'
 
 const Posts = ({ user }) => {
   const [posts, setPosts] = useState([]);
@@ -52,7 +51,7 @@ const Posts = ({ user }) => {
   } else {
     return (
       <>
-        <h3>unathorized</h3>
+        <h3>No Postes</h3>
       </>
     );
   }
