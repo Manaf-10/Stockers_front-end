@@ -35,3 +35,21 @@ export const getOwnedList = async (userId) => {
     console.log(error)
   }
 }
+
+export const deleteOwned = async (userId, symbol) => {
+  try {
+    const response = await Client.put(`/lists/owned/${userId}`, symbol)
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const deleteTracked = async (userId, symbol) => {
+  try {
+    const response = await Client.put(`/lists/tracked/${userId}`, symbol)
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
