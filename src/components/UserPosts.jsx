@@ -6,15 +6,15 @@ const UserPosts = ({ user }) => {
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
-    // const fetchData = async () => {
-    //   try {
-    //     const data = await userPosts(user.id)
-    //     setPosts(data)
-    //   } catch (err) {
-    //     console.error(err);
-    //   }
-    // };
-    // fetchData();
+    const fetchData = async () => {
+      try {
+        const data = await userPosts(user.id)
+        setPosts(data)
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchData();
   }, []);
 
   return (

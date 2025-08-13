@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { GetPosts,NewPost } from '../services/Post'
+import { GetPosts } from '../services/Post'
 import './post.css'
 
 const Posts = ({ user }) => {
@@ -17,6 +17,7 @@ const Posts = ({ user }) => {
 
     fetchData();
   }, []);
+  console.log(posts)
 
   if (user) {
     return (
@@ -58,3 +59,35 @@ const Posts = ({ user }) => {
 };
 
 export default Posts;
+
+
+
+{/* <div className="container">
+          <h1>Add A New post Listing</h1>
+          <form className="c" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name={"title"}
+              placeholder={"title"}
+              value={post.title}
+              onChange={handleChange}
+            />
+            <input
+              type="file"
+              name={"img"}
+              placeholder={"image"}
+              onChange={handleChange}
+            />
+            <textarea
+              name={"description"}
+              placeholder={"description"}
+              value={post.description}
+              onChange={handleChange}
+              className="text-area"
+              cols="30"
+              rows="10"
+              autoComplete="off"
+            ></textarea>
+            <button type="submit">Submit</button>
+          </form>
+        </div> */}
