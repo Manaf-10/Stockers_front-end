@@ -9,11 +9,10 @@ const TrackedLists = ({ user }) => {
     const tracked = await getTrackedList(user.id)
     setTrackedStock(tracked)
   }
+
   const handleDelete = async (symbol) => {
     try {
-      const res = await deleteTracked(user.id, {
-        symbol: symbol
-      })
+      await deleteTracked(user.id, { symbol })
       setDeleteT(!deleteT)
     } catch (error) {
       console.log(error)
@@ -24,18 +23,22 @@ const TrackedLists = ({ user }) => {
     fetchTrackedLists()
   }, [deleteT])
 
-  console.log(trackedStockes)
   return (
-    <>
+    <div className="tracked-container">
       {trackedStockes.map((el) => (
-        <div key={el._id} className="post-card">
-          <h3>{el.symbol}</h3>
-          <h3>{el.company}</h3>
-          <h3>{el.price}</h3>
-          <button onClick={() => handleDelete(el.symbol)}> Un Track</button>
+        <div key={el._id} className="post-card tracked-card">
+          <div className="tracked-header">
+            <h3>{el.symbol}</h3>
+            <button onClick={() => handleDelete(el.symbol)}>Untrack</button>
+          </div>
+          <div className="tracked-body">
+            <p><strong>Company:</strong> {el.company}</p>
+            <p><strong>Price:</strong> ${parseFloat(el.price).toFixed(2)}</p>
+          </div>
         </div>
       ))}
-    </>
+    </div>
   )
 }
+
 export default TrackedLists
