@@ -11,7 +11,7 @@ import {
 } from '../services/lists'
 import { createTransaction } from '../services/transaction'
 
-const StockGraph = ({ stock, user }) => {
+const StockGraph = ({ stock, user, setStockData }) => {
   const skipped = (ctx, value) =>
     ctx.p0.skip || ctx.p1.skip ? value : undefined
   const down = (ctx, value) =>
@@ -133,6 +133,13 @@ const StockGraph = ({ stock, user }) => {
                 </button>
               </>
             )}
+            <button
+              onClick={() => {
+                setStockData(null)
+              }}
+            >
+              back
+            </button>
           </div>
         </div>
       </>
