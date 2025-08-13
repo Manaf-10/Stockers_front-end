@@ -44,6 +44,7 @@ export const UpdatePassword = async (user_id, data) => {
 export const updateProfile = async (user_id, data) => {
   try {
     const res = await Client.put(`/auth/updateProfile/${user_id}`, data);
+    console.log(res)
     return res.data;
   } catch (error) {
     console.log(error);

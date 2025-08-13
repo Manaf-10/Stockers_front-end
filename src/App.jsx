@@ -1,33 +1,41 @@
-import "./App.css";
-import { Route, Routes } from "react-router-dom";
-import Header from "./components/Header";
-import Home from "./pages/Home";
-import Profile from "./components/Profile";
-import Posts from "./components/Posts";
-import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
-import StockLists from "./components/StockLists";
-import UserPosts from "./components/UserPosts";
-import Edit from "./pages/Edit";
-import UploadPost from "./pages/UploadPost";
-import { useState, useEffect } from "react";
-import { CheckSession } from "./services/Auth";
+import './App.css'
+import { Route, Routes } from 'react-router-dom'
+import Header from './components/Header'
+import Home from './pages/Home'
+import Profile from './components/Profile'
+import Posts from './components/Posts'
+import SignIn from './components/SignIn'
+import SignUp from './components/SignUp'
+import StockLists from './components/StockLists'
+import UserPosts from './components/UserPosts'
+import Edit from './pages/Edit'
+import UploadPost from './pages/UploadPost'
+import { useState, useEffect } from 'react'
+import { CheckSession } from './services/Auth'
+import { useNavigate } from 'react-router-dom'
 
 const App = () => {
-  const [user, setUser] = useState(null);
-  console.log(user);
+  const navigate = useNavigate()
+  const [user, setUser] = useState(null)
+  console.log(user)
+
+  const handleLogOut = () => {
+    setUser(null)
+    localStorage.clear()
+    navigate('/')
+  }
 
   const checkToken = async () => {
-    const user = await CheckSession();
-    setUser(user);
-  };
+    const user = await CheckSession()
+    setUser(user)
+  }
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token')
     if (token) {
-      checkToken();
+      checkToken()
     }
-  }, []);
+  }, [])
 
   return (
     <>
@@ -44,14 +52,17 @@ const App = () => {
         <Route path="/posts" element={<Posts user={user} />}></Route>
         <Route path="/stocks" element={<StockLists user={user} />}></Route>
         <Route path="/:username/posts" element={<UserPosts />}></Route>
-        <Route path="/profile/edit" element={<Edit user={user} />}></Route>
+        <Route
+          path="/profile/edit"
+          element={<Edit user={user} handleLogOut={handleLogOut} />}
+        ></Route>
         <Route
           path="/posts/upload"
           element={<UploadPost user={user} />}
         ></Route>
       </Routes>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App
