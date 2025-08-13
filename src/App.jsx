@@ -17,6 +17,7 @@ import * as THREE from 'three'
 import NET from 'vanta/dist/vanta.net.min'
 import { Line } from 'react-chartjs-2'
 
+
 const App = () => {
   const vantaRef = useRef(null)
   const [vantaEffect, setVantaEffect] = useState(null)
@@ -112,6 +113,7 @@ const App = () => {
           ></Route>
         </Routes>
       </div>
+
     </>
   )
 }

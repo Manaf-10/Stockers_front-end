@@ -1,30 +1,49 @@
-import Client from "./api";
+import Client from './api'
 
 export const GetPosts = async () => {
   try {
-    const res = await Client.get("/posts");
-    console.log(res);
-    return res.data;
+    const res = await Client.get('/posts')
+    console.log(res)
+    return res.data
   } catch (error) {
-    throw error;
+    throw error
   }
-};
+}
 
 export const userPosts = async (user_id) => {
   try {
-    const res = await Client.get(`/posts/user/${user_id}`);
-    console.log(res.data);
-    return res.data;
+    const res = await Client.get(`/posts/user/${user_id}`)
+    console.log(res.data)
+    return res.data
   } catch (error) {
-    throw error;
+    throw error
   }
-};
+}
 
 export const NewPost = async (data) => {
   try {
-    const res = await Client.post(`/posts`, data);
-    return res;
+    const res = await Client.post(`/posts`, data)
+    return res
   } catch (error) {
-    throw error;
+    throw error
   }
-};
+}
+
+export const GetEditPost = async (post_id) => {
+  try {
+    const res = await Client.get(`/posts/${post_id}`)
+    console.log(res)
+    return res
+  } catch (error) {
+    throw error
+  }
+}
+
+export const EditPosts = async (post_id, data) => {
+  try {
+    const res = await Client.put(`/posts/${post_id}`, data)
+    return res
+  } catch (error) {
+    throw error
+  }
+}

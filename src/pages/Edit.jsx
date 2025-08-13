@@ -8,6 +8,7 @@ const Edit = ({ user, handleLogOut }) => {
   console.log(user)
   const navigate = useNavigate()
 
+
   const initialState = {
     username: user.username,
     email: user.email,
@@ -25,6 +26,7 @@ const Edit = ({ user, handleLogOut }) => {
     } else {
       setFormValues({ ...formValues, [e.target.name]: e.target.value })
     }
+
   }
   const isDisabled = formValues.password !== formValues.confirmPassword
 
@@ -42,6 +44,7 @@ const Edit = ({ user, handleLogOut }) => {
     setFormValues(initialState)
     handleLogOut()
     navigate('/')
+
   }
   return (
     <div className="background-container">
