@@ -13,6 +13,7 @@ import UploadPost from "./pages/UploadPost";
 import { useState, useEffect } from "react";
 import { CheckSession } from "./services/Auth";
 import { useNavigate } from "react-router-dom";
+import EditPost from "./pages/EditPost";
 
 const App = () => {
   const navigate = useNavigate();
@@ -50,12 +51,9 @@ const App = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/profile" element={<Profile user={user} />}></Route>
         <Route path="/posts" element={<Posts user={user} />}></Route>
+        <Route path="/profile/:post_id" element={<EditPost user={user} />}></Route>
         <Route path="/stocks" element={<StockLists user={user} />}></Route>
         <Route path="/:username/posts" element={<UserPosts />}></Route>
-        <Route
-          path="/profile/edit"
-          element={<Edit user={user} handleLogOut={handleLogOut} />}
-        ></Route>
         <Route
           path="/profile/edit"
           element={<Edit user={user} handleLogOut={handleLogOut} />}
