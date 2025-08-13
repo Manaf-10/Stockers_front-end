@@ -2,6 +2,7 @@ import Client from './api'
 
 export const addToOwnedList = async (userId, stock) => {
   try {
+    console.log(userId + '' + stock)
     const res = await Client.post(`/lists/owned/${userId}`, stock)
     return res
   } catch (error) {
