@@ -29,6 +29,7 @@ const StockLists = ({ user }) => {
     <div className="stocks-list-container">
       <h2>All stocks</h2>
       {stockList.data.map((stock) => {
+        console.log(stock.company.img)
         const change = stock.price.changePercent;
         let changeColor = "";
         if (change > 0) {
@@ -47,7 +48,7 @@ const StockLists = ({ user }) => {
           >
             <div className="stock-box" key={stock.symbol}>
               <div className="stock-img">
-                <img src="google_icon.png" alt={`${stock.symbol} image`} />
+                <img src={`icons/${stock.company.img}`} alt={`${stock.symbol} image`} />
               </div>
               <div className="stock-symbol">{stock.symbol}</div>
               <div className="stock-price">

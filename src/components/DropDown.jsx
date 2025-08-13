@@ -20,19 +20,24 @@ const DropDown = ({ user, handleLogOut }) => {
         }}
       />
       <ul className="dropdown-menu">
+        <NavLink className="drop-down-box" to="/profile">
         <div className="dropdown-item">
-          <NavLink to="/profile">Profile</NavLink>
+          Profile
         </div>
+        </NavLink>
+         <NavLink className="drop-down-box" to="/posts/upload">
         <div className="dropdown-item">
-          <NavLink to="/posts/upload">upload post</NavLink>
+         upload post
         </div>
+        </NavLink>
         <li>
           <hr className="dropdown-divider" />
         </li>
+         <NavLink className="drop-down-box" onClick={handleLogOut}>
         <div className="dropdown-item">
-          <NavLink onClick={handleLogOut}>Log Out</NavLink>
+         Log Out
         </div>
-        {/* <NavLink to="/profile" className="profile-nav"></NavLink> */}
+        </NavLink>
       </ul>
     </div>
   );

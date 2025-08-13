@@ -22,14 +22,26 @@ body {
   margin-left: 24%;
 }
 
-.dropdown-item {
+.dropdown-down-box {
   display: flex !important;
-  justify-content: center;
+  justify-content: end !important;
+  align-items: center !important;
   color: black;
 }
 
+
 .dropdown-menu.show {
-  margin-right: 0 !important;
+  display: block !important;
+  justify-content: end !important;
+  align-items: center !important;
+  color: black;
+}
+.dropdown-item{
+  margin-left: 50px ;
+}
+
+.dropdown-item:hover{
+  background-color: transparent; 
 }
 
 .dropdown-item a {
@@ -45,7 +57,6 @@ nav {
   align-items: center;
   position: sticky;
   top: 0;
-  height: 65px;
 }
 
 nav a {
@@ -101,6 +112,7 @@ nav a {
   margin-bottom: 20px;
   cursor: pointer;
 }
+
 
 .image-upload img {
   width: 80px;

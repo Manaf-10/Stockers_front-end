@@ -8,7 +8,8 @@
         "name": "Apple Inc.",
         "industry": "Technology",
         "sector": "Consumer Electronics",
-        "headquarters": "Cupertino, California, USA"
+        "headquarters": "Cupertino, California, USA",
+        "img": "apple.png"
       },
       "market": {
         "exchange": "NASDAQ",
@@ -39,7 +40,8 @@
         "name": "Tesla Inc.",
         "industry": "Automotive",
         "sector": "Consumer Discretionary",
-        "headquarters": "Palo Alto, California, USA"
+        "headquarters": "Palo Alto, California, USA",
+        "img": "tesla.png"
       },
       "market": {
         "exchange": "NASDAQ",
@@ -70,7 +72,8 @@
         "name": "Alphabet Inc.",
         "industry": "Technology",
         "sector": "Communication Services",
-        "headquarters": "Mountain View, California, USA"
+        "headquarters": "Mountain View, California, USA",
+        "img": "google.png"
       },
       "market": {
         "exchange": "NASDAQ",
@@ -101,7 +104,8 @@
         "name": "Amazon.com, Inc.",
         "industry": "Retail",
         "sector": "Consumer Discretionary",
-        "headquarters": "Seattle, Washington, USA"
+        "headquarters": "Seattle, Washington, USA",
+        "img": "amazon.png"
       },
       "market": {
         "exchange": "NASDAQ",
@@ -132,7 +136,8 @@
         "name": "Microsoft Corporation",
         "industry": "Technology",
         "sector": "Software & Services",
-        "headquarters": "Redmond, Washington, USA"
+        "headquarters": "Redmond, Washington, USA",
+        "img": "microsoft.png"
       },
       "market": {
         "exchange": "NASDAQ",
@@ -163,7 +168,8 @@
         "name": "Netflix, Inc.",
         "industry": "Entertainment",
         "sector": "Communication Services",
-        "headquarters": "Los Gatos, California, USA"
+        "headquarters": "Los Gatos, California, USA",
+        "img": "netflix.png"
       },
       "market": {
         "exchange": "NASDAQ",
@@ -194,7 +200,8 @@
         "name": "Meta Platforms, Inc.",
         "industry": "Technology",
         "sector": "Communication Services",
-        "headquarters": "Menlo Park, California, USA"
+        "headquarters": "Menlo Park, California, USA",
+        "img": "meta.png"
       },
       "market": {
         "exchange": "NASDAQ",
@@ -225,7 +232,8 @@
         "name": "NVIDIA Corporation",
         "industry": "Technology",
         "sector": "Semiconductors",
-        "headquarters": "Santa Clara, California, USA"
+        "headquarters": "Santa Clara, California, USA",
+        "img": "nvidia.png"
       },
       "market": {
         "exchange": "NASDAQ",
@@ -251,12 +259,77 @@
       }
     },
     {
+      "symbol": "JPM",
+      "company": {
+        "name": "JPMorgan Chase & Co.",
+        "industry": "Financial Services",
+        "sector": "Financials",
+        "headquarters": "New York, New York, USA",
+        "img": "jpmorgan.png"
+      },
+      "market": {
+        "exchange": "NYSE",
+        "currency": "USD",
+        "marketCap": 470000000000,
+        "peRatio": 12.8,
+        "dividendYield": 2.5
+      },
+      "price": {
+        "current": 140.00,
+        "open": 138.00,
+        "high": 141.00,
+        "low": 137.50,
+        "previousClose": 139.00,
+        "change": 1.00,
+        "changePercent": 0.72,
+        "volume": 8000000,
+        "averageVolume": 7900000
+      },
+      "52WeekRange": {
+        "high": 160.00,
+        "low": 115.00
+      }
+    },
+    {
+      "symbol": "DIS",
+      "company": {
+        "name": "The Walt Disney Company",
+        "industry": "Entertainment",
+        "sector": "Communication Services",
+        "headquarters": "Burbank, California, USA",
+        "img": "disney.png"
+      },
+      "market": {
+        "exchange": "NYSE",
+        "currency": "USD",
+        "marketCap": 320000000000,
+        "peRatio": 25.0,
+        "dividendYield": 1.3
+      },
+      "price": {
+        "current": 180.00,
+        "open": 178.00,
+        "high": 182.00,
+        "low": 177.00,
+        "previousClose": 179.00,
+        "change": 1.00,
+        "changePercent": 0.56,
+        "volume": 7000000,
+        "averageVolume": 6900000
+      },
+      "52WeekRange": {
+        "high": 200.00,
+        "low": 150.00
+      }
+    },
+    {
       "symbol": "BABA",
       "company": {
         "name": "Alibaba Group Holding Limited",
         "industry": "E-commerce",
         "sector": "Consumer Discretionary",
-        "headquarters": "Hangzhou, China"
+        "headquarters": "Hangzhou, China",
+        "img": "alibaba.png"
       },
       "market": {
         "exchange": "NYSE",
@@ -281,28 +354,445 @@
         "low": 110.00
       }
     },
-
     {
       "symbol": "V",
-      "company": { "name": "Visa Inc.", "industry": "Financial Services", "sector": "Information Technology", "headquarters": "Foster City, California, USA" },
-      "market": { "exchange": "NYSE", "currency": "USD", "marketCap": 450000000000, "peRatio": 40.0, "dividendYield": 0.7 },
-      "price": { "current": 220.00, "open": 215.00, "high": 222.00, "low": 214.00, "previousClose": 218.00, "change": 2.00, "changePercent": 0.92, "volume": 6000000, "averageVolume": 5800000 },
-      "52WeekRange": { "high": 230.00, "low": 180.00 }
+      "company": {
+        "name": "Visa Inc.",
+        "industry": "Financial Services",
+        "sector": "Information Technology",
+        "headquarters": "Foster City, California, USA",
+        "img": "visa.png"
+      },
+      "market": {
+        "exchange": "NYSE",
+        "currency": "USD",
+        "marketCap": 450000000000,
+        "peRatio": 40.0,
+        "dividendYield": 0.7
+      },
+      "price": {
+        "current": 220.00,
+        "open": 215.00,
+        "high": 222.00,
+        "low": 214.00,
+        "previousClose": 218.00,
+        "change": 2.00,
+        "changePercent": 0.92,
+        "volume": 6000000,
+        "averageVolume": 5800000
+      },
+      "52WeekRange": {
+        "high": 230.00,
+        "low": 180.00
+      }
     },
     {
-      "symbol": "JPM",
-      "company": { "name": "JPMorgan Chase & Co.", "industry": "Financial Services", "sector": "Financials", "headquarters": "New York, New York, USA" },
-      "market": { "exchange": "NYSE", "currency": "USD", "marketCap": 470000000000, "peRatio": 12.8, "dividendYield": 2.5 },
-      "price": { "current": 140.00, "open": 138.00, "high": 141.00, "low": 137.50, "previousClose": 139.00, "change": 1.00, "changePercent": 0.72, "volume": 8000000, "averageVolume": 7900000 },
-      "52WeekRange": { "high": 160.00, "low": 115.00 }
+      "symbol": "CSCO",
+      "company": {
+        "name": "Cisco Systems, Inc.",
+        "industry": "Networking",
+        "sector": "Technology",
+        "headquarters": "San Jose, California, USA",
+        "img": "cisco.png"
+      },
+      "market": {
+        "exchange": "NASDAQ",
+        "currency": "USD",
+        "marketCap": 200000000000,
+        "peRatio": 22.5,
+        "dividendYield": 2.5
+      },
+      "price": {
+        "current": 55.00,
+        "open": 54.00,
+        "high": 56.00,
+        "low": 53.00,
+        "previousClose": 54.50,
+        "change": 0.50,
+        "changePercent": 0.92,
+        "volume": 10000000,
+        "averageVolume": 9500000
+      },
+      "52WeekRange": {
+        "high": 60.00,
+        "low": 45.00
+      }
     },
     {
-      "symbol": "DIS",
-      "company": { "name": "The Walt Disney Company", "industry": "Entertainment", "sector": "Communication Services", "headquarters": "Burbank, California, USA" },
-      "market": { "exchange": "NYSE", "currency": "USD", "marketCap": 320000000000, "peRatio": 25.0, "dividendYield": 1.3 },
-      "price": { "current": 180.00, "open": 178.00, "high": 182.00, "low": 177.00, "previousClose": 179.00, "change": 1.00, "changePercent": 0.56, "volume": 7000000, "averageVolume": 6900000 },
-      "52WeekRange": { "high": 200.00, "low": 150.00 }
+      "symbol": "ORCL",
+      "company": {
+        "name": "Oracle Corporation",
+        "industry": "Software",
+        "sector": "Technology",
+        "headquarters": "Redwood City, California, USA",
+        "img": "oracle.png"
+      },
+      "market": {
+        "exchange": "NYSE",
+        "currency": "USD",
+        "marketCap": 180000000000,
+        "peRatio": 18.0,
+        "dividendYield": 1.2
+      },
+      "price": {
+        "current": 85.00,
+        "open": 84.00,
+        "high": 86.00,
+        "low": 83.00,
+        "previousClose": 84.50,
+        "change": 0.50,
+        "changePercent": 0.59,
+        "volume": 5000000,
+        "averageVolume": 4900000
+      },
+      "52WeekRange": {
+        "high": 90.00,
+        "low": 70.00
+      }
+    },
+    {
+      "symbol": "PEP",
+      "company": {
+        "name": "PepsiCo, Inc.",
+        "industry": "Food & Beverage",
+        "sector": "Consumer Staples",
+        "headquarters": "Purchase, New York, USA",
+        "img": "pepsico.png"
+      },
+      "market": {
+        "exchange": "NASDAQ",
+        "currency": "USD",
+        "marketCap": 200000000000,
+        "peRatio": 25.0,
+        "dividendYield": 2.8
+      },
+      "price": {
+        "current": 175.00,
+        "open": 173.00,
+        "high": 178.00,
+        "low": 172.00,
+        "previousClose": 174.50,
+        "change": 0.50,
+        "changePercent": 0.29,
+        "volume": 6000000,
+        "averageVolume": 5800000
+      },
+      "52WeekRange": {
+        "high": 185.00,
+        "low": 150.00
+      }
+    },
+    {
+      "symbol": "KO",
+      "company": {
+        "name": "The Coca-Cola Company",
+        "industry": "Food & Beverage",
+        "sector": "Consumer Staples",
+        "headquarters": "Atlanta, Georgia, USA",
+        "img": "coca_cola.png"
+      },
+      "market": {
+        "exchange": "NYSE",
+        "currency": "USD",
+        "marketCap": 250000000000,
+        "peRatio": 30.0,
+        "dividendYield": 3.1
+      },
+      "price": {
+        "current": 60.00,
+        "open": 59.00,
+        "high": 61.00,
+        "low": 58.00,
+        "previousClose": 59.50,
+        "change": 0.50,
+        "changePercent": 0.84,
+        "volume": 4500000,
+        "averageVolume": 4300000
+      }
+    }, {
+      "symbol": "AMD",
+      "company": {
+        "name": "Advanced Micro Devices, Inc.",
+        "industry": "Semiconductors",
+        "sector": "Technology",
+        "headquarters": "Santa Clara, California, USA",
+        "img": "amd.png"
+      },
+      "market": {
+        "exchange": "NASDAQ",
+        "currency": "USD",
+        "marketCap": 150000000000,
+        "peRatio": 35.0,
+        "dividendYield": 0.0
+      },
+      "price": {
+        "current": 95.00,
+        "open": 93.00,
+        "high": 97.00,
+        "low": 92.00,
+        "previousClose": 94.00,
+        "change": 1.00,
+        "changePercent": 1.06,
+        "volume": 7000000,
+        "averageVolume": 6800000
+      },
+      "52WeekRange": {
+        "high": 100.00,
+        "low": 70.00
+      }
+    },
+    {
+      "symbol": "INTC",
+      "company": {
+        "name": "Intel Corporation",
+        "industry": "Semiconductors",
+        "sector": "Technology",
+        "headquarters": "Santa Clara, California, USA",
+        "img": "intel.png"
+      },
+      "market": {
+        "exchange": "NASDAQ",
+        "currency": "USD",
+        "marketCap": 250000000000,
+        "peRatio": 15.0,
+        "dividendYield": 2.5
+      },
+      "price": {
+        "current": 55.00,
+        "open": 54.00,
+        "high": 56.00,
+        "low": 53.00,
+        "previousClose": 54.50,
+        "change": 0.50,
+        "changePercent": 0.92,
+        "volume": 8000000,
+        "averageVolume": 7800000
+      },
+      "52WeekRange": {
+        "high": 60.00,
+        "low": 40.00
+      }
+    },
+    {
+      "symbol": "T",
+      "company": {
+        "name": "AT&T Inc.",
+        "industry": "Telecommunications",
+        "sector": "Communication Services",
+        "headquarters": "Dallas, Texas, USA",
+        "img": "att.png"
+      },
+      "market": {
+        "exchange": "NYSE",
+        "currency": "USD",
+        "marketCap": 200000000000,
+        "peRatio": 8.0,
+        "dividendYield": 6.0
+      },
+      "price": {
+        "current": 15.00,
+        "open": 14.50,
+        "high": 15.50,
+        "low": 14.00,
+        "previousClose": 14.80,
+        "change": 0.20,
+        "changePercent": 1.35,
+        "volume": 30000000,
+        "averageVolume": 29000000
+      },
+      "52WeekRange": {
+        "high": 20.00,
+        "low": 12.00
+      }
+    },
+    {
+      "symbol": "XOM",
+      "company": {
+        "name": "Exxon Mobil Corporation",
+        "industry": "Oil & Gas",
+        "sector": "Energy",
+        "headquarters": "Irving, Texas, USA",
+        "img": "exxon.png"
+      },
+      "market": {
+        "exchange": "NYSE",
+        "currency": "USD",
+        "marketCap": 400000000000,
+        "peRatio": 10.5,
+        "dividendYield": 3.5
+      },
+      "price": {
+        "current": 90.00,
+        "open": 89.00,
+        "high": 91.00,
+        "low": 88.00,
+        "previousClose": 89.50,
+        "change": 0.50,
+        "changePercent": 0.56,
+        "volume": 15000000,
+        "averageVolume": 14000000
+      },
+      "52WeekRange": {
+        "high": 100.00,
+        "low": 70.00
+      }
+    },
+    {
+      "symbol": "MCD",
+      "company": {
+        "name": "McDonald's Corporation",
+        "industry": "Restaurants",
+        "sector": "Consumer Discretionary",
+        "headquarters": "Chicago, Illinois, USA",
+        "img": "mcdonalds.png"
+      },
+      "market": {
+        "exchange": "NYSE",
+        "currency": "USD",
+        "marketCap": 200000000000,
+        "peRatio": 25.0,
+        "dividendYield": 2.5
+      },
+      "price": {
+        "current": 280.00,
+        "open": 275.00,
+        "high": 285.00,
+        "low": 273.00,
+        "previousClose": 278.00,
+        "change": 2.00,
+        "changePercent": 0.72,
+        "volume": 3000000,
+        "averageVolume": 2900000
+      },
+      "52WeekRange": {
+        "high": 300.00,
+        "low": 240.00
+      }
+    },
+    {
+      "symbol": "NKE",
+      "company": {
+        "name": "Nike, Inc.",
+        "industry": "Apparel & Accessories",
+        "sector": "Consumer Discretionary",
+        "headquarters": "Beaverton, Oregon, USA",
+        "img": "nike.png"
+      },
+      "market": {
+        "exchange": "NYSE",
+        "currency": "USD",
+        "marketCap": 200000000000,
+        "peRatio": 35.0,
+        "dividendYield": 0.8
+      },
+      "price": {
+        "current": 120.00,
+        "open": 118.00,
+        "high": 122.00,
+        "low": 117.00,
+        "previousClose": 119.00,
+        "change": 1.00,
+        "changePercent": 0.84,
+        "volume": 5000000,
+        "averageVolume": 4800000
+      },
+      "52WeekRange": {
+        "high": 130.00,
+        "low": 100.00
+      }
+    },
+    {
+      "symbol": "PFE",
+      "company": {
+        "name": "Pfizer Inc.",
+        "industry": "Pharmaceuticals",
+        "sector": "Health Care",
+        "headquarters": "New York, New York, USA",
+        "img": "pfizer.png"
+      },
+      "market": {
+        "exchange": "NYSE",
+        "currency": "USD",
+        "marketCap": 200000000000,
+        "peRatio": 10.0,
+        "dividendYield": 4.5
+      },
+      "price": {
+        "current": 50.00,
+        "open": 49.00,
+        "high": 51.00,
+        "low": 48.00,
+        "previousClose": 49.00,
+        "change": 1.00,
+        "changePercent": 2.04,
+        "volume": 10000000,
+        "averageVolume": 9500000
+      },
+      "52WeekRange": {
+        "high": 60.00,
+        "low": 40.00
+      }
+    },
+    {
+      "symbol": "CVX",
+      "company": {
+        "name": "Chevron Corporation",
+        "industry": "Oil & Gas",
+        "sector": "Energy",
+        "headquarters": "San Ramon, California, USA",
+        "img": "chevron.png"
+      },
+      "market": {
+        "exchange": "NYSE",
+        "currency": "USD",
+        "marketCap": 250000000000,
+        "peRatio": 11.0,
+        "dividendYield": 3.6
+      },
+      "price": {
+        "current": 180.00,
+        "open": 178.00,
+        "high": 182.00,
+        "low": 177.00,
+        "previousClose": 179.00,
+        "change": 1.00,
+        "changePercent": 0.56,
+        "volume": 5000000,
+        "averageVolume": 4800000
+      },
+      "52WeekRange": {
+        "high": 190.00,
+        "low": 140.00
+      }
+    },
+    {
+      "symbol": "TXN",
+      "company": {
+        "name": "Texas Instruments Incorporated",
+        "industry": "Semiconductors",
+        "sector": "Technology",
+        "headquarters": "Dallas, Texas, USA",
+        "img": "texas_instruments.png"
+      },
+      "market": {
+        "exchange": "NASDAQ",
+        "currency": "USD",
+        "marketCap": 150000000000,
+        "peRatio": 22.0,
+        "dividendYield": 2.5
+      },
+      "price": {
+        "current": 185.00,
+        "open": 182.00,
+        "high": 187.00,
+        "low": 180.00,
+        "previousClose": 184.00,
+        "change": 1.00,
+        "changePercent": 0.54,
+        "volume": 3000000,
+        "averageVolume": 2900000
+      }
     }
-
   ]
 }
+  
