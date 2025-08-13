@@ -9,12 +9,13 @@ import SignUp from "./components/SignUp";
 import StockLists from "./components/StockLists";
 import UserPosts from "./components/UserPosts";
 import Edit from "./pages/Edit";
+import UploadPost from "./pages/UploadPost";
 import { useState, useEffect } from "react";
 import { CheckSession } from "./services/Auth";
 
 const App = () => {
   const [user, setUser] = useState(null);
-
+  console.log(user);
 
   const checkToken = async () => {
     const user = await CheckSession();
@@ -46,6 +47,10 @@ const App = () => {
         <Route path="/stocks" element={<StockLists user={user} />}></Route>
         <Route path="/:username/posts" element={<UserPosts />}></Route>
         <Route path="/profile/edit" element={<Edit user={user} />}></Route>
+        <Route
+          path="/posts/upload"
+          element={<UploadPost user={user} />}
+        ></Route>
       </Routes>
     </>
   );
