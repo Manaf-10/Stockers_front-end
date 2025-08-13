@@ -16,6 +16,7 @@ import { useNavigate } from 'react-router-dom'
 import * as THREE from 'three'
 import NET from 'vanta/dist/vanta.net.min'
 import { Line } from 'react-chartjs-2'
+import EditPost from "./pages/EditPost";
 
 
 const App = () => {
@@ -101,6 +102,7 @@ const App = () => {
           <Route path="/" element={<Home />}></Route>
           <Route path="/profile" element={<Profile user={user} />}></Route>
           <Route path="/posts" element={<Posts user={user} />}></Route>
+          <Route path="/profile/:post_id" element={<EditPost user={user} />}></Route>
           <Route path="/stocks" element={<StockLists user={user} />}></Route>
           <Route path="/:username/posts" element={<UserPosts />}></Route>
           <Route
