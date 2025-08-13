@@ -10,7 +10,6 @@ const OwnedLists = ({ user }) => {
     const owned = await getOwnedList(user.id)
     setownedStock(owned)
   }
-
   const handleDelete = async (stock) => {
     try {
       console.log(stock)
