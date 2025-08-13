@@ -12,10 +12,18 @@ import Edit from "./pages/Edit";
 import UploadPost from "./pages/UploadPost";
 import { useState, useEffect } from "react";
 import { CheckSession } from "./services/Auth";
+import { useNavigate } from "react-router-dom";
 
 const App = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   console.log(user);
+
+  const handleLogOut = () => {
+    setUser(null);
+    localStorage.clear();
+    navigate("/");
+  };
 
   const checkToken = async () => {
     const user = await CheckSession();
@@ -44,7 +52,10 @@ const App = () => {
         <Route path="/posts" element={<Posts user={user} />}></Route>
         <Route path="/stocks" element={<StockLists user={user} />}></Route>
         <Route path="/:username/posts" element={<UserPosts />}></Route>
-        <Route path="/profile/edit" element={<Edit user={user} />}></Route>
+        <Route
+          path="/profile/edit"
+          element={<Edit user={user} handleLogOut={handleLogOut} />}
+        ></Route>
         <Route
           path="/posts/upload"
           element={<UploadPost user={user} />}

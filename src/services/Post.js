@@ -8,23 +8,23 @@ export const GetPosts = async () => {
   } catch (error) {
     throw error;
   }
-}
+};
 
 export const userPosts = async (user_id) => {
   try {
-    const res = await Client.get(`/posts/user/${user_id}`)
-    return res.data
+    const res = await Client.get(`/posts/user/${user_id}`);
+    console.log(res.data);
+    return res.data;
   } catch (error) {
-    throw error
+    throw error;
   }
-}
-
+};
 
 export const NewPost = async (data) => {
   try {
-    const res = await Client.post(`/posts`, data)
-    return res
+    const res = await Client.post(`/posts`, data);
+    return res;
   } catch (error) {
-    throw error
+    throw error;
   }
-}
+};

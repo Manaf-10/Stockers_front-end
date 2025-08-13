@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { GetPosts } from "../services/GetPost";
+import { userPosts } from "../services/Post";
 
 const UserPosts = ({ user }) => {
   const [posts, setPosts] = useState([]);
@@ -7,7 +7,9 @@ const UserPosts = ({ user }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await GetPosts(user.id);
+        console.log(user.id);
+        const data = await userPosts(user.id);
+        console.log(data);
         setPosts(data);
       } catch (err) {
         console.error(err);

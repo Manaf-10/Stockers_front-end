@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { updateProfile } from "../services/Auth";
 
-const Edit = ({ user }) => {
+const Edit = ({ user, handleLogOut }) => {
   // let thisUser = user.user;
-  console.log(user)
-  let navigate = useNavigate();
+
+  console.log(user);
+  const navigate = useNavigate();
 
   const initialState = {
     username: user.username,
@@ -18,24 +19,29 @@ const Edit = ({ user }) => {
   const [formValues, setFormValues] = useState(initialState);
 
   const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+    if (e.target.name === "avatar") {
+      setFormValues({ ...formValues, avatar: e.target.files[0] });
+      console.log(e.target.files[0]);
+    } else {
+      setFormValues({ ...formValues, [e.target.name]: e.target.value });
+    }
   };
   const isDisabled = formValues.password !== formValues.confirmPassword;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await updateProfile(user.id, {
-      username: formValues.username,
-      email: formValues.email,
-      password: formValues.password,
-      avatar: formValues.avatar,
-    });
+    const formData = new FormData();
+    formData.append("username", formValues.username);
+    formData.append("email", formValues.email);
+    formData.append("avatar", formValues.avatar);
+    console.log(avatar);
+
+    await updateProfile(user.id, formData);
 
     setFormValues(initialState);
-    setUser(null);
-    localStorage.clear();
-    navigate("/sign-in");
+    handleLogOut();
+    navigate("/");
   };
   return (
     <div className="background-container">

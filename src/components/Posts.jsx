@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { GetPosts } from "../services/GetPost";
+import { GetPosts } from "../services/Post";
 
 const Posts = ({ user }) => {
   const [posts, setPosts] = useState([]);

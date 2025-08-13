@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import UserPosts from "./UserPosts";
 import Listings from "./Listings";
 import Logs from "./Logs";
