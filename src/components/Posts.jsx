@@ -1,11 +1,6 @@
-
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { NewPost } from '../services/NewPost'
-import { GetPosts } from '../services/GetPost'
+import { GetPosts,NewPost } from '../services/Post'
 import './post.css'
-
-import axios from 'axios'
 
 const Posts = ({ user }) => {
   const initialState = { title: '', description: '', img: '' }
@@ -87,11 +82,11 @@ const Posts = ({ user }) => {
 
         <h1>Posts:</h1>
         <div className="posts-list">
-          {posts.map((po) => (
-            <div key={po._id} className="post-card">
-              {po.img && <img src={`http://localhost:3000/public/posts/${po.img}`} alt={po.title} />}
-              <h3>{po.title}</h3>
-              <p>{po.description}</p>
+          {posts.map((post) => (
+            <div key={post._id} className="post-card">
+              {post.img && <img src={`http://localhost:3000/public/posts/${post.img}`} alt={post.title} />}
+              <h3>{post.title}</h3>
+              <p>{post.description}</p>
             </div>
           ))}
         </div>
@@ -101,7 +96,7 @@ const Posts = ({ user }) => {
   } else {
     return (
       <>
-        <h3>unathorized</h3>
+        <h3>No Postes</h3>
       </>
     )
   }

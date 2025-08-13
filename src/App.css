@@ -275,7 +275,7 @@ nav a {
   justify-content: space-around;
 }
 
-.status-Received {
+.status-buy {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -286,7 +286,7 @@ nav a {
   border-radius: 10px;
 }
 
-.status-Sell {
+.status-sell {
   display: flex;
   justify-content: center;
   align-items: center;

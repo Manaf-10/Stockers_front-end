@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { userPosts } from '../services/GetPost'
+import { userPosts } from '../services/Post'
 import './post.css'
 
 const UserPosts = ({ user }) => {

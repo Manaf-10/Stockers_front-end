@@ -17,3 +17,13 @@ export const userPosts = async (user_id) => {
     throw error
   }
 }
+
+
+export const NewPost = async (data) => {
+  try {
+    const res = await Client.post(`/posts`, data)
+    return res
+  } catch (error) {
+    throw error
+  }
+}
