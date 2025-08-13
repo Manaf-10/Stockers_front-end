@@ -46,7 +46,9 @@ const StockLists = ({ user }) => {
   if (!showGraph) {
     return (
       <div className="stocks-list-container">
+        <div className='allStockes'>
         <h2>All stocks</h2>
+        </div>
         {stockList.data.map((stock) => {
           const change = stock.price.changePercent
           let changeColor = ''
@@ -63,6 +65,7 @@ const StockLists = ({ user }) => {
               name={'stock'}
               onClick={(e) => handleClick(e, stock)}
               key={stock.symbol}
+              className='StockListing'
             >
               <div className="stock-box" key={stock.symbol}>
                 <div className="stock-img">
