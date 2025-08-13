@@ -3,12 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { updateProfile } from "../services/Auth";
 
 const Edit = ({ user }) => {
-  let thisUser = user.user;
+  // let thisUser = user.user;
+  console.log(user)
   let navigate = useNavigate();
 
   const initialState = {
-    username: thisUser.username,
-    email: thisUser.email,
+    username: user.username,
+    email: user.email,
     password: "",
     confirmPassword: "",
     avatar: null,
@@ -24,7 +25,7 @@ const Edit = ({ user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await updateProfile(thisUser.id, {
+    await updateProfile(user.id, {
       username: formValues.username,
       email: formValues.email,
       password: formValues.password,
@@ -60,7 +61,7 @@ const Edit = ({ user }) => {
             <input
               name="username"
               type="text"
-              placeholder={thisUser.username}
+              placeholder={user.username}
               onChange={handleChange}
               value={formValues.username}
             />
@@ -69,7 +70,7 @@ const Edit = ({ user }) => {
             <input
               name="email"
               type="email"
-              placeholder={thisUser.email}
+              placeholder={user.email}
               onChange={handleChange}
               value={formValues.email}
               autoComplete="email"
