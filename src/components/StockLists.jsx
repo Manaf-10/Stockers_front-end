@@ -68,10 +68,6 @@ const StockLists = ({ user }) => {
               </div>
               <div className="stock-pe">{stock.market.peRatio}%</div>
               <div className="stock-exchange">
-                <img
-                  src={`${stock.market.exchange}.png`}
-                  alt={`${stock.market.exchange}`}
-                />
               </div>
               <div className="stock-sector">{stock.company.sector}</div>
             </div>

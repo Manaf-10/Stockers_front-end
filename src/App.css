@@ -1103,3 +1103,159 @@ nav a:hover {
   background-color: #d9363e;
 }
 
+
+
+.logs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.log {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease;
+}
+
+.log:hover {
+  transform: scale(1.01);
+}
+
+.symbol-date {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  margin-left: 1rem;
+}
+
+.logs-symbol {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.symbol-date div {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.price-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex: 1;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.status-buy {
+  color: green;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.status-sell {
+  color: crimson;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.buy-img,
+.sell-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+
+.owned-section {
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  margin-bottom: 2rem;
+}
+
+.owned-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 1.2rem;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.owned-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.owned-card {
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.owned-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.owned-card span {
+  flex: 1 1 30%;
+  font-size: 0.95rem;
+  color: #333;
+  margin: 0.3rem 0;
+}
+
+.owned-card .symbol {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.owned-card .quantity {
+  color: #0077cc;
+  font-weight: 500;
+}
+
+.owned-card .price {
+  color: #00aa88;
+  font-weight: 500;
+}
+
+.owned-card .cost {
+  font-weight: 500;
+  color: #555;
+}
+
+@media (max-width: 600px) {
+  .owned-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .owned-card span {
+    flex: 1 1 100%;
+  }
+}
+
+
