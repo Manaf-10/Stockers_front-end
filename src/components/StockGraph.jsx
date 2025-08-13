@@ -101,11 +101,57 @@ const StockGraph = ({ stock, user, setStockData, setShowGraph }) => {
   }
 
   const options = {
-    fill: false,
+    responsive: true,
     interaction: {
-      intersect: false
+      intersect: false,
+      mode: 'index'
     },
-    radius: 0
+    plugins: {
+      legend: {
+        display: false
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0,0,0,0.8)',
+        titleColor: '#fff',
+        bodyColor: '#fff',
+        borderWidth: 1,
+        borderColor: 'rgba(143, 31, 132, 1)',
+        padding: 10,
+        displayColors: false,
+        callbacks: {
+          label: (context) => `Price: $${context.formattedValue}`
+        }
+      }
+    },
+    elements: {
+      line: {
+        borderWidth: 2
+      },
+      point: {
+        radius: 0,
+        hoverRadius: 6,
+        hoverBackgroundColor: '#00ffcc'
+      }
+    },
+    scales: {
+      x: {
+        grid: {
+          color: 'rgba(255,255,255,0.05)'
+        },
+        ticks: {
+          color: '#bbb'
+        }
+      },
+      y: {
+        grid: {
+          color: 'rgba(255,255,255,0.05)'
+        },
+        ticks: {
+          color: '#bbb',
+          callback: (value) => `$${value}`
+        }
+      }
+    }
   }
 
   const handleBack = () => {
