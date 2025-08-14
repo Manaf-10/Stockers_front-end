@@ -9,7 +9,6 @@ const Posts = ({ user }) => {
     const fetchData = async () => {
       try {
         const data = await GetPosts();
-        console.log(data)
         setPosts(data);
       } catch (err) {
         console.error(err);

@@ -1,24 +1,22 @@
-import { useEffect, useState } from 'react'
-import { userPosts } from '../services/Post'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from "react";
+import { userPosts } from "../services/Post";
+import { useNavigate } from "react-router-dom";
 
 const UserPosts = ({ user }) => {
-  const [posts, setPosts] = useState([])
-  const navigate = useNavigate()
+  const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(user.id)
-        const data = await userPosts(user.id)
-        console.log(data)
-        setPosts(data)
+        const data = await userPosts(user.id);
+        setPosts(data);
       } catch (err) {
-        console.error(err)
+        console.error(err);
       }
-    }
-    fetchData()
-  }, [])
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="listings">
@@ -35,7 +33,7 @@ const UserPosts = ({ user }) => {
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default UserPosts
+export default UserPosts;

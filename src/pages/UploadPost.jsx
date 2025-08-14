@@ -1,31 +1,29 @@
-import { useState } from 'react'
-import { NewPost } from '../services/Post'
+import { useState } from "react";
+import { NewPost } from "../services/Post";
 
 const UploadPost = ({ user }) => {
-  const initialState = { title: '', description: '', img: '' }
+  const initialState = { title: "", description: "", img: "" };
 
-  const [post, setPost] = useState(initialState)
+  const [post, setPost] = useState(initialState);
   const handleChange = (e) => {
-    if (e.target.name === 'img') {
-      setPost({ ...post, img: e.target.files[0] })
+    if (e.target.name === "img") {
+      setPost({ ...post, img: e.target.files[0] });
     } else {
-      setPost({ ...post, [e.target.name]: e.target.value })
+      setPost({ ...post, [e.target.name]: e.target.value });
     }
-  }
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    console.log(user.id)
-    const formData = new FormData()
-    formData.append('title', post.title)
-    formData.append('description', post.description)
-    formData.append('img', post.img)
-    formData.append('owner', user.id)
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("title", post.title);
+    formData.append("description", post.description);
+    formData.append("img", post.img);
+    formData.append("owner", user.id);
 
-    const payload = await NewPost(formData)
-    console.log(payload)
-    setPost(initialState)
-  }
+    const payload = await NewPost(formData);
+    setPost(initialState);
+  };
 
   if (user) {
     return (
@@ -36,8 +34,8 @@ const UploadPost = ({ user }) => {
             <div className="input-wrapper">
               <input
                 type="text"
-                name={'title'}
-                placeholder={'title'}
+                name={"title"}
+                placeholder={"title"}
                 value={post.title}
                 onChange={handleChange}
               />
@@ -47,7 +45,7 @@ const UploadPost = ({ user }) => {
             <div className="input-div">
               <input
                 type="file"
-                name={'img'}
+                name={"img"}
                 onChange={handleChange}
                 className="input"
               />
@@ -68,11 +66,10 @@ const UploadPost = ({ user }) => {
                 <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3" />
                 <polyline points="16 16 12 12 8 16" />
               </svg>
-
             </div>
             <textarea
-              name={'description'}
-              placeholder={'description'}
+              name={"description"}
+              placeholder={"description"}
               value={post.description}
               onChange={handleChange}
               className="input-wrapper"
@@ -86,8 +83,8 @@ const UploadPost = ({ user }) => {
           </form>
         </div>
       </>
-    )
-  } else return <h3>unathorized</h3>
-}
+    );
+  } else return <h3>unathorized</h3>;
+};
 
-export default UploadPost
+export default UploadPost;

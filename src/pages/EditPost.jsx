@@ -1,44 +1,42 @@
-import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { updateProfile } from '../services/Auth'
-import { GetEditPost, EditPosts } from '../services/Post'
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { updateProfile } from "../services/Auth";
+import { GetEditPost, EditPosts } from "../services/Post";
 
 const EditPost = ({ user }) => {
-  let navigate = useNavigate()
+  let navigate = useNavigate();
   const initialState = {
-    title: '',
-    description: ''
-  }
-  const [post, setPost] = useState()
+    title: "",
+    description: "",
+  };
+  const [post, setPost] = useState();
 
-  const { post_id } = useParams()
-  console.log(post_id)
+  const { post_id } = useParams();
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await GetEditPost(post_id)
-      console.log(res.data)
-      setPost(res.data.posts)
-    }
-    getPost()
-  }, [post_id])
+      const res = await GetEditPost(post_id);
+      setPost(res.data.posts);
+    };
+    getPost();
+  }, [post_id]);
 
   const handleChange = (e) => {
-    setPost({ ...post, [e.target.name]: e.target.value })
-  }
+    setPost({ ...post, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     await EditPosts(post_id, {
       title: post.title,
-      description: post.description
-    })
+      description: post.description,
+    });
 
-    setPost(initialState)
+    setPost(initialState);
 
-    navigate('/profile')
-  }
+    navigate("/profile");
+  };
 
   if (user && post) {
     return (
@@ -49,8 +47,8 @@ const EditPost = ({ user }) => {
             <div className="input-wrapper">
               <input
                 type="text"
-                name={'title'}
-                placeholder={'title'}
+                name={"title"}
+                placeholder={"title"}
                 value={post.title}
                 onChange={handleChange}
               />
@@ -60,7 +58,7 @@ const EditPost = ({ user }) => {
             <div className="input-div">
               <input
                 type="file"
-                name={'img'}
+                name={"img"}
                 onChange={handleChange}
                 className="input"
               />
@@ -83,8 +81,8 @@ const EditPost = ({ user }) => {
               </svg>
             </div>
             <textarea
-              name={'description'}
-              placeholder={'description'}
+              name={"description"}
+              placeholder={"description"}
               value={post.description}
               onChange={handleChange}
               className="input-wrapper"
@@ -98,8 +96,8 @@ const EditPost = ({ user }) => {
           </form>
         </div>
       </>
-    )
-  } else return <h3>unathorized</h3>
-}
+    );
+  } else return <h3>unathorized</h3>;
+};
 
-export default EditPost
+export default EditPost;

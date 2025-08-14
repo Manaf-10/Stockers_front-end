@@ -23,12 +23,12 @@ const StockLists = ({ user }) => {
     setData(stock);
     window.history.pushState({}, "", `stocks/${stock.symbol}`);
   };
-  if (data) return <StockGraph stock={data} user={user} />;
+  if (data) return <StockGraph setStock={setData} stock={data} user={user} />;
 
   return (
     <div className="stocks-list-container">
+      <div className="stock-list-header"></div>
       {stockList.data.map((stock) => {
-        console.log(stock.company.img)
         const change = stock.price.changePercent;
         let changeColor = "";
         if (change > 0) {
@@ -47,7 +47,10 @@ const StockLists = ({ user }) => {
           >
             <div className="stock-box" key={stock.symbol}>
               <div className="stock-img">
-                <img src={`icons/${stock.company.img}`} alt={`${stock.symbol} image`} />
+                <img
+                  src={`icons/${stock.company.img}`}
+                  alt={`${stock.symbol} image`}
+                />
               </div>
               <div className="stock-symbol">{stock.symbol}</div>
               <div className="stock-price">
@@ -66,8 +69,7 @@ const StockLists = ({ user }) => {
                 <div className="stock-currency"> {stock.market.currency}</div>
               </div>
               <div className="stock-pe">{stock.market.peRatio}%</div>
-              <div className="stock-exchange">
-              </div>
+              <div className="stock-exchange"></div>
               <div className="stock-sector">{stock.company.sector}</div>
             </div>
           </div>

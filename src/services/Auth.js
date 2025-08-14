@@ -2,7 +2,6 @@ import Client from "./api";
 
 export const RegisterUser = async (formData) => {
   try {
-    console.log(formData);
     const res = await Client.post("/auth/register", formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
@@ -44,7 +43,6 @@ export const UpdatePassword = async (user_id, data) => {
 export const updateProfile = async (user_id, data) => {
   try {
     const res = await Client.put(`/auth/updateProfile/${user_id}`, data);
-    console.log(res)
     return res.data;
   } catch (error) {
     console.log(error);

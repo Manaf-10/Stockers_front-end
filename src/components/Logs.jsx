@@ -15,8 +15,6 @@ const Logs = ({ user }) => {
     fetchData();
   }, []);
 
-  console.log(Transactions);
-
   if (user.id !== Transactions.map((Transaction) => Transaction.owner)) {
     return (
       <div className="logs-container">
@@ -29,9 +27,7 @@ const Logs = ({ user }) => {
             />
             <div className="symbol-date">
               <div className="logs-symbol">{Transaction.symbol}</div>
-              <div>
-                {Transaction.quantity} | {Transaction.date}
-              </div>
+              <div>{Transaction.createdAt.split("T")[0]}</div>
             </div>
             <div>{Transaction.company}</div>
             <div className="price-status">

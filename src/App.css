@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 body {
   margin: 0;
   padding: 0;
@@ -29,26 +29,24 @@ body {
   color: black;
 }
 
-
 .dropdown-menu.show {
   display: block !important;
   justify-content: end !important;
   align-items: center !important;
   color: black;
 }
-.dropdown-item{
-  margin-left: 50px ;
+.dropdown-item {
+  margin-left: 50px;
 }
 
-.dropdown-item:hover{
-  background-color: transparent; 
+.dropdown-item:hover {
+  background-color: transparent;
 }
 
 .dropdown-item a {
   text-decoration: none;
   color: black;
 }
-
 
 /*author https://uiverse.io/ahmed150up/tiny-yak-9*/
 .background-container {
@@ -69,7 +67,7 @@ body {
 .sign-form h1 {
   text-align: center;
   margin-bottom: 25px;
-  color: white
+  color: white;
 }
 
 .input-wrapper {
@@ -96,7 +94,6 @@ body {
   margin-bottom: 20px;
   cursor: pointer;
 }
-
 
 .image-upload img {
   width: 80px;
@@ -194,7 +191,7 @@ body {
 
 .logs-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   width: 66%;
   background: #d9d9d9;
   justify-content: space-between;
@@ -203,7 +200,6 @@ body {
   padding: 1rem;
   margin: auto;
 }
-
 
 .log img {
   border-radius: 100%;
@@ -262,8 +258,8 @@ body {
 
 .stock-box {
   display: flex;
-  justify-content: left;
-  height: 40px;
+  justify-content: space-evenly;
+  height: 8vh;
   transition: background 0.3s;
   cursor: pointer;
   color: white;
@@ -279,13 +275,13 @@ body {
 
 .stock-img img {
   width: 70%;
-  margin-left: 15px;
+  margin-left: 5%;
 }
 
 .stock-symbol {
   align-self: center;
   height: 80%;
-  margin-left: 3%;
+  margin-left: 6%;
   width: 4.5%;
   display: flex;
   justify-content: center;
@@ -305,7 +301,7 @@ body {
   display: flex;
   justify-content: end;
   align-items: center;
-  margin-left: 4%;
+  margin-left: 6%;
   width: 3%;
   text-align: left;
 }
@@ -317,7 +313,6 @@ body {
   flex-direction: column-reverse;
   text-align: center;
   justify-content: center;
-
   margin-top: 3px;
   margin-left: 2px;
 }
@@ -326,7 +321,7 @@ body {
   display: flex;
   justify-content: end;
   align-items: center;
-  margin-left: 4%;
+  margin-left: 6%;
   width: 2.8%;
 }
 
@@ -334,7 +329,7 @@ body {
   display: flex;
   justify-content: end;
   align-items: center;
-  margin-left: 5%;
+  margin-left: 8%;
   width: 3.5%;
 }
 
@@ -342,7 +337,7 @@ body {
   display: flex;
   justify-content: end;
   align-items: center;
-  margin-left: 4%;
+  margin-left: 6%;
   width: 3.5%;
 }
 
@@ -358,7 +353,7 @@ body {
   display: flex;
   justify-content: start;
   align-items: center;
-  margin-left: 4%;
+  margin-left: 8%;
   width: 3%;
 }
 
@@ -385,12 +380,20 @@ a img {
 
 .graph-page {
   width: 100%;
-  height: 50%;
+  height: 91vh;
   display: flex;
+  flex-direction: column;
+  background-color: #1f1f2e;
 }
 
 .graph-container {
   width: 80%;
+  height: auto;
+}
+
+.graph-body {
+  display: flex;
+  flex-direction: row;
 }
 
 .buttons-container {
@@ -407,6 +410,14 @@ a img {
 
 .graph-header {
   margin-top: 0;
+  display: flex;
+  color: black;
+  color: white;
+  height: auto;
+}
+
+.graph-header h1 {
+  margin-left: 39%;
 }
 
 .posts-list {
@@ -563,6 +574,10 @@ a img {
   transform: translateY(calc(-50% - 5px));
 }
 
+textarea {
+  width: 100%;
+}
+
 .input {
   width: 100%;
   height: 40px;
@@ -611,11 +626,7 @@ a img {
   justify-self: center;
 }
 
-
-
-
 /* ///////////////////ali from here//////////////////// */
-
 
 nav {
   background-color: #1f1f2e;
@@ -628,7 +639,6 @@ nav {
   top: 0;
   z-index: 1000;
 }
-
 
 .nav-bar-links {
   display: flex;
@@ -667,7 +677,7 @@ nav a:hover {
   border-radius: 20px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   color: white;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 .user-profile {
@@ -720,7 +730,6 @@ nav a:hover {
   padding: 10px 0;
 }
 
-
 .profile-lists-toggle button {
   background: none;
   color: white;
@@ -736,14 +745,12 @@ nav a:hover {
   color: #00ffff;
 }
 
-
 .listings,
 .logs,
 .user-posts {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.05);
 }
-
 
 .log {
   width: 100%;
@@ -752,7 +759,7 @@ nav a:hover {
   justify-content: space-between;
   background: #1f1f2e;
   color: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease;
 }
 
@@ -772,7 +779,7 @@ nav a:hover {
 }
 
 .status-buy {
-  color: #4CAF50;
+  color: #4caf50;
   font-weight: bold;
 }
 
@@ -800,12 +807,11 @@ nav a:hover {
   margin-bottom: 1%;
 }
 
-.owned-card h3{
-   margin: 0 0 8px;
+.owned-card h3 {
+  margin: 0 0 8px;
   font-size: 1.1rem;
   font-weight: 500;
 }
-
 
 .post-card {
   color: white;
@@ -818,7 +824,6 @@ nav a:hover {
   transition: transform 0.3s ease;
   margin-bottom: 1%;
 }
-
 
 .post-card h3 {
   margin: 0 0 8px;
@@ -842,8 +847,6 @@ nav a:hover {
   background-color: #e84545;
 }
 
-
-
 .profile-lists-toggle button {
   padding: 10px 18px;
   border: none;
@@ -855,7 +858,6 @@ nav a:hover {
   transition: background 0.3s ease;
 }
 
-
 .posts-list {
   display: flex;
   flex-wrap: wrap;
@@ -866,7 +868,6 @@ nav a:hover {
   border-radius: 20px;
   /* box-shadow: 0 0 20px rgba(255, 255, 255, 0.05); */
 }
-
 
 .post-card img {
   width: 50%;
@@ -910,7 +911,6 @@ nav a:hover {
   word-break: break-word;
 }
 
-
 .log {
   display: flex;
   align-items: center;
@@ -919,7 +919,6 @@ nav a:hover {
   padding: 16px;
   background-color: #f9f9f9;
 }
-
 
 .symbol-date {
   display: flex;
@@ -949,6 +948,7 @@ nav a:hover {
 .price {
   font-weight: bold;
   font-size: 1.1rem;
+  color: #666;
 }
 
 .status-buy {
@@ -969,7 +969,6 @@ nav a:hover {
   height: 40px;
   object-fit: contain;
 }
-
 
 .owned-section {
   padding: 1.5rem;
@@ -1003,11 +1002,11 @@ nav a:hover {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  width: 66.%;
+  width: 66%;
 }
 
 .tracked-container {
-  display: flex ;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -1025,7 +1024,7 @@ nav a:hover {
   color: black;
 }
 
-.tracked-card h3{
+.tracked-card h3 {
   width: 17%;
 }
 
@@ -1038,10 +1037,9 @@ nav a:hover {
   color: #333;
 }
 
-.tracked-body p{
+.tracked-body p {
   margin-top: 1%;
 }
-
 
 .tracked-card button {
   background-color: #ff4d4f;

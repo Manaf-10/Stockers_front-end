@@ -1,89 +1,83 @@
-import { useEffect, useState } from 'react'
-import 'chart.js/auto'
-import { Chart } from 'react-chartjs-2'
-import { getStock } from '../services/stock'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useEffect, useState } from "react";
+import "chart.js/auto";
+import { Chart } from "react-chartjs-2";
+import { getStock } from "../services/stock";
 import {
   addToOwnedList,
   addToTrackedList,
-  getOwnedList,
-  getTrackedList
-} from '../services/lists'
-import { createTransaction } from '../services/transaction'
-
-const StockGraph = ({ stock, user, setStockData, setShowGraph }) => {
+  getTrackedList,
+} from "../services/lists";
+import { useNavigate } from "react-router-dom";
+import { createTransaction } from "../services/transaction";
+import BackButton from "./BackButton";
+const StockGraph = ({ stock, setStock, user }) => {
   const skipped = (ctx, value) =>
-    ctx.p0.skip || ctx.p1.skip ? value : undefined
+    ctx.p0.skip || ctx.p1.skip ? value : undefined;
   const down = (ctx, value) =>
-    ctx.p0.parsed.y > ctx.p1.parsed.y ? value : undefined
+    ctx.p0.parsed.y > ctx.p1.parsed.y ? value : undefined;
 
-  const [data, setData] = useState(null)
-  const [latestPrice, setLatestPrice] = useState(null)
-  const [isTracked, setIsTracked] = useState(false)
-  const [toggle, setToggle] = useState(false)
-
+  const [data, setData] = useState(null);
+  const [latestPrice, setLatestPrice] = useState(null);
+  const [isTracked, setIsTracked] = useState(false);
+  const [toggle, setToggle] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     const getStocks = async () => {
-      const stockData = await getStock(stock.symbol)
+      const stockData = await getStock(stock.symbol);
 
       setData({
         labels: stockData.Dates,
         datasets: [
           {
-            label: 'stocks',
+            label: "stocks",
             data: stockData.data,
-            borderColor: 'rgb(75, 192, 192)',
+            borderColor: "rgb(75, 192, 192)",
             segment: {
               borderColor: (ctx) =>
-                skipped(ctx, 'rgb(0,0,0,0.2)') || down(ctx, 'rgb(192,75,75)'),
-              borderDash: (ctx) => skipped(ctx, [6, 6])
+                skipped(ctx, "rgb(0,0,0,0.2)") || down(ctx, "rgb(192,75,75)"),
+              borderDash: (ctx) => skipped(ctx, [6, 6]),
             },
-            spanGaps: true
-          }
-        ]
-      })
-      setLatestPrice(stockData.data[stockData.data.length - 1])
-    }
-    checkTracked()
+            spanGaps: true,
+          },
+        ],
+      });
+      setLatestPrice(stockData.data[stockData.data.length - 1]);
+    };
+    checkTracked();
 
-    getStocks()
-  }, [toggle])
+    getStocks();
+  }, [toggle]);
 
   const checkTracked = async () => {
-    const tracked = await getTrackedList(user.id)
+    const tracked = await getTrackedList(user.id);
     tracked.find((el) => {
       if (el.symbol === stock.symbol) {
-        setIsTracked(true)
-        return
+        setIsTracked(true);
+        return;
       }
-    })
-  }
-
-  console.log('is tracked is ' + isTracked)
+    });
+  };
 
   const handleBuy = async () => {
     try {
       const transaction = await createTransaction(user.id, {
         symbol: stock.symbol,
         company: stock.company,
-        type: 'buy',
+        type: "buy",
         actionPrice: latestPrice,
-        quantity: 1
-      })
+        quantity: 1,
+      });
 
       const owned = await addToOwnedList(user.id, {
         symbol: stock.symbol,
         company: stock.company.name,
         price: latestPrice,
-        amount: 1
-      })
-
-      console.log('Transaction:', transaction)
-      console.log('Owned list updated:', owned)
+        amount: 1,
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const handleTrack = async () => {
     try {
@@ -91,107 +85,106 @@ const StockGraph = ({ stock, user, setStockData, setShowGraph }) => {
         symbol: stock.symbol,
         company: stock.company.name,
         price: latestPrice,
-        amount: 0
-      })
-      console.log(`Tracking ${stock.symbol}`)
-      setToggle(!toggle)
+        amount: 0,
+      });
+      setToggle(!toggle);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
 
   const options = {
     responsive: true,
     interaction: {
       intersect: false,
-      mode: 'index'
+      mode: "index",
     },
     plugins: {
       legend: {
-        display: false
+        display: false,
       },
       tooltip: {
-        backgroundColor: 'rgba(0,0,0,0.8)',
-        titleColor: '#fff',
-        bodyColor: '#fff',
+        backgroundColor: "rgba(0,0,0,0.8)",
+        titleColor: "#fff",
+        bodyColor: "#fff",
         borderWidth: 1,
-        borderColor: 'rgba(143, 31, 132, 1)',
+        borderColor: "rgba(143, 31, 132, 1)",
         padding: 10,
         displayColors: false,
         callbacks: {
-          label: (context) => `Price: $${context.formattedValue}`
-        }
-      }
+          label: (context) => `Price: $${context.formattedValue}`,
+        },
+      },
     },
     elements: {
       line: {
-        borderWidth: 2
+        borderWidth: 2,
       },
       point: {
         radius: 0,
         hoverRadius: 6,
-        hoverBackgroundColor: '#00ffcc'
-      }
+        hoverBackgroundColor: "#00ffcc",
+      },
     },
     scales: {
       x: {
         grid: {
-          color: 'rgba(255,255,255,0.05)'
+          color: "rgba(255,255,255,0.05)",
         },
         ticks: {
-          color: '#bbb'
-        }
+          color: "#bbb",
+        },
       },
       y: {
         grid: {
-          color: 'rgba(255,255,255,0.05)'
+          color: "rgba(255,255,255,0.05)",
         },
         ticks: {
-          color: '#bbb',
-          callback: (value) => `$${value}`
-        }
-      }
-    }
-  }
+          color: "#bbb",
+          callback: (value) => `$${value}`,
+        },
+      },
+    },
+  };
 
   const handleBack = () => {
-    console.log('No more stock! Go back!')
-    setData(null)
-    setShowGraph(false)
-    window.history.pushState({}, '', `/stocks`)
-  }
-  console.log(data)
+    setStock(null);
+    navigate("/stocks");
+    setStock(null);
+  };
   if (!data) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   } else {
     return (
       <>
-        <div className="graph-header">
-          <h1>{stock.symbol}</h1>
-        </div>
         <div className="graph-page">
-          <div className="graph-container">
-            <Chart type="line" data={data} options={options} />
+          <div className="graph-header">
+            <BackButton handleBack={handleBack} />
+            <h1>{stock.symbol}</h1>
           </div>
-          <div className="buttons-container">
-            <button className="buy-button" onClick={handleBuy}>
-              Buy
-            </button>
-            {isTracked ? (
-              <button disabled>Already Tracked</button>
-            ) : (
-              <>
-                <button className="track-button" onClick={handleTrack}>
-                  Track
-                </button>
-              </>
-            )}
-            <button onClick={handleBack}>back</button>
+          <div className="graph-body">
+            <div className="graph-container">
+              <Chart type="line" data={data} options={options} />
+            </div>
+            <div className="buttons-container">
+              <button className="buy-button" onClick={handleBuy}>
+                Buy
+              </button>
+              {isTracked ? (
+                <button disabled>Tracked</button>
+              ) : (
+                <>
+                  <button className="track-button" onClick={handleTrack}>
+                    Track
+                  </button>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </>
-    )
+    );
   }
-}
+};
 
-export default StockGraph
+export default StockGraph;

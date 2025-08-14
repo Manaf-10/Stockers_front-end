@@ -19,7 +19,6 @@ const SignUp = () => {
   const handleChange = (e) => {
     if (e.target.name === "avatar") {
       setFormValues({ ...formValues, avatar: e.target.files[0] });
-      console.log(e.target.files[0]);
     } else {
       setFormValues({ ...formValues, [e.target.name]: e.target.value });
     }
@@ -33,7 +32,6 @@ const SignUp = () => {
     formData.append("email", formValues.email);
     formData.append("password", formValues.password);
     formData.append("avatar", formValues.avatar);
-    console.log(formData);
     let res = await RegisterUser(formData);
     if (res.msg) {
       setErrorMsg(res.msg);

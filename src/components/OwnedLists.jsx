@@ -1,37 +1,36 @@
-import { useState, useEffect } from 'react'
-import { getOwnedList, deleteOwned } from '../services/lists'
-import { createTransaction } from '../services/transaction'
+import { useState, useEffect } from "react";
+import { getOwnedList, deleteOwned } from "../services/lists";
+import { createTransaction } from "../services/transaction";
 
 const OwnedLists = ({ user }) => {
-  const [ownedStockes, setownedStock] = useState([])
-  const [deleteO, setDeleteO] = useState(false)
+  const [ownedStockes, setownedStock] = useState([]);
+  const [deleteO, setDeleteO] = useState(false);
 
   const fetchOwnedLists = async () => {
-    const owned = await getOwnedList(user.id)
-    setownedStock(owned)
-  }
+    const owned = await getOwnedList(user.id);
+    setownedStock(owned);
+  };
   const handleDelete = async (stock) => {
     try {
-      console.log(stock)
       const res = await deleteOwned(user.id, {
-        symbol: stock.symbol
-      })
+        symbol: stock.symbol,
+      });
       const transaction = await createTransaction(user.id, {
         symbol: stock.symbol,
         company: stock.company,
-        type: 'sell',
+        type: "sell",
         actionPrice: stock.price,
-        quantity: 1
-      })
-      setDeleteO(!deleteO)
+        quantity: 1,
+      });
+      setDeleteO(!deleteO);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
-    fetchOwnedLists()
-  }, [deleteO])
+    fetchOwnedLists();
+  }, [deleteO]);
   return (
     <>
       {ownedStockes.map((el) => (
@@ -41,7 +40,7 @@ const OwnedLists = ({ user }) => {
           <h3>{el.price}</h3>
           <button
             onClick={() => {
-              handleDelete(el)
+              handleDelete(el);
             }}
           >
             SELL
@@ -49,6 +48,6 @@ const OwnedLists = ({ user }) => {
         </div>
       ))}
     </>
-  )
-}
-export default OwnedLists
+  );
+};
+export default OwnedLists;
