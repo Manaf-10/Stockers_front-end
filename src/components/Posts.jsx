@@ -14,6 +14,7 @@ const Posts = ({ user }) => {
         console.error(err);
       }
     };
+    
 
     fetchData();
   }, []);

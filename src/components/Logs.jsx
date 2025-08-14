@@ -15,6 +15,12 @@ const Logs = ({ user }) => {
     fetchData();
   }, []);
 
+<<<<<<< HEAD
+=======
+  console.log(Transactions);
+  
+
+>>>>>>> 6aec15f42c0e239b41a8d3e15ec6e7e987d941b9
   if (user.id !== Transactions.map((Transaction) => Transaction.owner)) {
     return (
       <div className="logs-container">

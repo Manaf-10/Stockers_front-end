@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+
 const SearchBar = () => {
   {
     /* author : https://uiverse.io/boryanakrasteva/hard-pig-16 */

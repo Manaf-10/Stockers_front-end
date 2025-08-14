@@ -48,3 +48,4 @@ export const updateProfile = async (user_id, data) => {
     console.log(error);
   }
 };
+

@@ -1,3 +1,4 @@
+
 const logs = [
   {
     symbol: "AAPL",
