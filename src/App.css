@@ -13,7 +13,7 @@ body {
   width: 30%;
 }
 .nav-bar-links a {
-  margin-left: 10%;
+  margin-left: 7%;
 }
 .btn.dropdown-toggle::after {
   display: none !important;
@@ -49,20 +49,6 @@ body {
   color: black;
 }
 
-nav {
-  background-color: black;
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  position: sticky;
-  top: 0;
-}
-
-nav a {
-  text-decoration: none;
-  color: white;
-}
 
 /*author https://uiverse.io/ahmed150up/tiny-yak-9*/
 .background-container {
@@ -70,26 +56,23 @@ nav a {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #f5f7fa;
   font-family: Arial, sans-serif;
 }
 
 .sign-form {
-  background-color: rgba(40, 6, 230, 0.616);
+  background-color: #1f1f2e;
   padding: 30px 40px;
   border-radius: 8px;
-  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.616);
   width: 350px;
 }
 
 .sign-form h1 {
   text-align: center;
   margin-bottom: 25px;
-  color: #333;
+  color: white
 }
 
 .input-wrapper {
-  
   margin-bottom: 18px;
 }
 
@@ -162,11 +145,6 @@ nav a {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: rgba(40, 6, 230, 0.603);
-  margin: 50px;
-  border-radius: 40px;
-
-  width: 100%;
 }
 
 .user-profile-container img {
@@ -199,7 +177,7 @@ nav a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 66.8%;
+  width: 66.2%;
 }
 
 .profile-lists-toggle button {
@@ -217,22 +195,15 @@ nav a {
 .logs-container {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 66%;
   background: #d9d9d9;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin: auto;
 }
 
-.log {
-  background-color: #f2f2f2;
-  width: 97%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 100px;
-  margin: 20px 0 0 0;
-  border-radius: 10px;
-}
 
 .log img {
   border-radius: 100%;
@@ -295,9 +266,8 @@ nav a {
   height: 40px;
   transition: background 0.3s;
   cursor: pointer;
-
-  background-color: rgba(27, 6, 25, 0.822);
   color: white;
+  background-color: #1f1f2e;
 }
 
 .stock-img {
@@ -310,10 +280,6 @@ nav a {
 .stock-img img {
   width: 70%;
   margin-left: 15px;
-}
-
-.stock-box:hover {
-  background-color: rgba(40, 6, 230, 0.603);
 }
 
 .stock-symbol {
@@ -384,7 +350,7 @@ nav a {
   display: flex;
   justify-content: start;
   align-items: center;
-  margin-left: 4%;
+  margin-left: auto;
   width: 10%;
 }
 
@@ -395,15 +361,12 @@ nav a {
   margin-left: 4%;
   width: 3%;
 }
+
 .stock-exchange {
   display: flex;
   justify-content: center;
   margin-left: 3%;
   width: 3%;
-}
-
-.stock-exchange img {
-  width: 100%;
 }
 
 a {
@@ -454,22 +417,6 @@ a img {
   gap: 0;
   justify-content: center;
   align-items: center;
-}
-
-.post-card {
-  margin-top: 5%;
-  background-color: #f4f4f4;
-  display: flex;
-  width: 70%;
-}
-
-.post-card img {
-  width: 42.52%;
-  aspect-ratio: 1/1;
-  margin-left: 5%;
-  margin-top: 5%;
-  margin-right: 2.5%;
-  margin-bottom: 5%;
 }
 
 .post-details {
@@ -674,9 +621,7 @@ nav {
   background-color: #1f1f2e;
   color: white;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 14px 30px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   font-family: "Segoe UI", sans-serif;
   position: sticky;
@@ -717,8 +662,7 @@ nav a:hover {
 .user-profile-container {
   margin: 20px auto;
   padding: 20px;
-  width: 85%;
-  max-width: 1000px;
+  width: 60%;
   background: linear-gradient(to right, #1e1e2f, #2c3e50);
   border-radius: 20px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
@@ -770,12 +714,12 @@ nav a:hover {
 .profile-lists-toggle {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 30px;
-  border-radius: 10px;
+  margin-bottom: 2%;
   overflow: hidden;
   background-color: #2c2f45;
   padding: 10px 0;
 }
+
 
 .profile-lists-toggle button {
   background: none;
@@ -796,38 +740,20 @@ nav a:hover {
 .listings,
 .logs,
 .user-posts {
+  width: 100%;
   background-color: rgba(255, 255, 255, 0.05);
-  padding: 20px;
-  border-radius: 12px;
 }
 
-
-.logs-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
 
 .log {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: #1f1f2e;
-  padding: 16px;
-  border-radius: 12px;
   color: white;
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
   transition: transform 0.2s ease;
-}
-
-.log:hover {
-  transform: translateY(-2px);
-}
-
-.logs-symbol {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-bottom: 4px;
 }
 
 .symbol-date {
@@ -862,20 +788,37 @@ nav a:hover {
   margin-right: 10px;
 }
 
+.owned-card {
+  color: black;
+  padding: 1rem;
+  background-color: #1e1e2f;
+  width: 68%;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  margin-bottom: 1%;
+}
+
+.owned-card h3{
+   margin: 0 0 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
 
 .post-card {
-  background: #252542;
   color: white;
-  border-radius: 12px;
   padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease;
+  background-color: #1e1e2f;
+  width: 68%;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  margin-bottom: 1%;
 }
 
-.post-card:hover {
-  transform: translateY(-2px);
-}
 
 .post-card h3 {
   margin: 0 0 8px;
@@ -883,7 +826,7 @@ nav a:hover {
   font-weight: 500;
 }
 
-.post-card button {
+.owned-card button {
   margin-top: 0.5rem;
   padding: 8px 16px;
   border: none;
@@ -895,17 +838,11 @@ nav a:hover {
   transition: background 0.2s ease;
 }
 
-.post-card button:hover {
+.owned-card button:hover {
   background-color: #e84545;
 }
 
 
-.profile-lists-toggle {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 1.5rem 0;
-}
 
 .profile-lists-toggle button {
   padding: 10px 18px;
@@ -918,73 +855,6 @@ nav a:hover {
   transition: background 0.3s ease;
 }
 
-.profile-lists-toggle button:hover {
-  background-color: #3a3a5f;
-}
-.stocks-list-container {
-  padding: 2rem;
-  color: #e6e6e6;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.stocks-list-container h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.stock-box {
-  display: grid;
-  grid-template-columns: 40px 60px repeat(6, 1fr) 60px 1fr;
-  align-items: center;
-  padding: 1rem;
-  margin-bottom: 0.7rem;
-  background-color: #1a1a2e;
-  border-radius: 12px;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.stock-box:hover {
-  background-color: #26264a;
-}
-
-.stock-img img {
-  width: 30px;
-  height: 30px;
-}
-
-.stock-symbol {
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-.stock-price,
-.stock-currency,
-.stock-change,
-.stock-volume,
-.stock-market-cap,
-.stock-pe,
-.stock-sector {
-  text-align: center;
-  font-size: 0.95rem;
-}
-
-.stock-change {
-  font-weight: bold;
-}
-
-.stock-exchange img {
-  width: 30px;
-  height: auto;
-}
-
-@media (max-width: 768px) {
-  .stock-box {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-    font-size: 0.85rem;
-  }
-}
 
 .posts-list {
   display: flex;
@@ -997,21 +867,6 @@ nav a:hover {
   /* box-shadow: 0 0 20px rgba(255, 255, 255, 0.05); */
 }
 
-.post-card {
-  background-color: #1e1e2f;
-  width: 90%;
-  max-width: 800px;
-  border-radius: 16px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease;
-}
-
-.post-card:hover {
-  transform: translateY(-4px);
-}
 
 .post-card img {
   width: 50%;
@@ -1056,79 +911,15 @@ nav a:hover {
 }
 
 
-.tracked-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.tracked-card {
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  background-color: #f9f9f9;
-  padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s;
-}
-
-.tracked-card:hover {
-  transform: translateY(-4px);
-}
-
-.tracked-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.75rem;
-}
-
-.tracked-body p {
-  margin: 0.25rem 0;
-  font-size: 0.95rem;
-  color: #333;
-}
-
-.tracked-card button {
-  background-color: #ff4d4f;
-  color: white;
-  border: none;
-  padding: 0.4rem 0.7rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.tracked-card button:hover {
-  background-color: #d9363e;
-}
-
-
-
-.logs-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-  max-width: 900px;
-  margin: auto;
-}
-
 .log {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border: 1px solid #ddd;
-  border-radius: 12px;
   padding: 16px;
   background-color: #f9f9f9;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  transition: transform 0.2s ease;
 }
 
-.log:hover {
-  transform: scale(1.01);
-}
 
 .symbol-date {
   display: flex;
@@ -1206,56 +997,62 @@ nav a:hover {
 
 .owned-card {
   background-color: white;
-  border-radius: 12px;
   border: 1px solid #ccc;
   padding: 1rem 1.5rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  transition: box-shadow 0.3s ease;
+  width: 66.%;
 }
 
-.owned-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.tracked-container {
+  display: flex ;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-.owned-card span {
-  flex: 1 1 30%;
-  font-size: 0.95rem;
+.tracked-card {
+  background-color: white;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  width: 66%;
+  height: 100%;
+  margin-bottom: 0.5%;
+  color: black;
+}
+
+.tracked-card h3{
+  width: 17%;
+}
+
+.tracked-body {
+  width: 80%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  padding: 1%;
   color: #333;
-  margin: 0.3rem 0;
 }
 
-.owned-card .symbol {
-  font-weight: 600;
-  font-size: 1.1rem;
+.tracked-body p{
+  margin-top: 1%;
 }
 
-.owned-card .quantity {
-  color: #0077cc;
+
+.tracked-card button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  cursor: pointer;
   font-weight: 500;
 }
 
-.owned-card .price {
-  color: #00aa88;
-  font-weight: 500;
+.tracked-card button:hover {
+  background-color: #d9363e;
 }
-
-.owned-card .cost {
-  font-weight: 500;
-  color: #555;
-}
-
-@media (max-width: 600px) {
-  .owned-card {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .owned-card span {
-    flex: 1 1 100%;
-  }
-}
-
-

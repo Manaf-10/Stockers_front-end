@@ -35,7 +35,7 @@ const OwnedLists = ({ user }) => {
   return (
     <>
       {ownedStockes.map((el) => (
-        <div key={el._id} className="post-card">
+        <div key={el._id} className="owned-card">
           <h3>{el.symbol}</h3>
           <h3>{el.company}</h3>
           <h3>{el.price}</h3>

@@ -22,7 +22,6 @@ const Posts = ({ user }) => {
   if (user) {
     return (
       <>
-        <h1>Posts:</h1>
         <div className="posts-list">
           {posts.map((post) => (
             <div key={post._id} className="post-card">

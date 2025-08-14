@@ -26,15 +26,13 @@ const TrackedLists = ({ user }) => {
   return (
     <div className="tracked-container">
       {trackedStockes.map((el) => (
-        <div key={el._id} className="post-card tracked-card">
-          <div className="tracked-header">
+        <div key={el._id} className="tracked-card">
             <h3>{el.symbol}</h3>
-            <button onClick={() => handleDelete(el.symbol)}>Untrack</button>
-          </div>
           <div className="tracked-body">
             <p><strong>Company:</strong> {el.company}</p>
             <p><strong>Price:</strong> ${parseFloat(el.price).toFixed(2)}</p>
           </div>
+          <button onClick={() => handleDelete(el.symbol)}>Untrack</button>
         </div>
       ))}
     </div>

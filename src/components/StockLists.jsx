@@ -27,7 +27,6 @@ const StockLists = ({ user }) => {
 
   return (
     <div className="stocks-list-container">
-      <h2>All stocks</h2>
       {stockList.data.map((stock) => {
         console.log(stock.company.img)
         const change = stock.price.changePercent;

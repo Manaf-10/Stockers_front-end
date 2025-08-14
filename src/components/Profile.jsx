@@ -1,20 +1,22 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import UserPosts from "./UserPosts";
-import Listings from "./Listings";
 import Logs from "./Logs";
 import { useNavigate } from "react-router-dom";
-
+import OwnedLists from "./OwnedLists";
+import TrackedLists from "./trackedLists";
 const Profile = ({ user }) => {
   const navigate = useNavigate();
   const [page, setpage] = useState("Posts");
   const renderPage = (e) => {
     switch (page) {
-      case "Lists":
-        return <Listings user={user} />;
       case "Posts":
         return <UserPosts user={user} />;
       case "Logs":
         return <Logs user={user} />;
+      case "Tracked":
+        return <TrackedLists user={user}/>
+      case "Owned":
+      return <OwnedLists user={user}/>  
     }
   };
 
@@ -38,9 +40,11 @@ const Profile = ({ user }) => {
           </div>
         </div>
         <div className="profile-lists-toggle">
-          <button onClick={changePage}>Lists</button>
-          <button onClick={changePage}>Logs</button>
           <button onClick={changePage}>Posts</button>
+          <button onClick={changePage}>Logs</button>
+          <button onClick={changePage}>Owned</button>
+          <button onClick={changePage}>Tracked</button>
+
         </div>
         {renderPage()}
       </div>
