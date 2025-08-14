@@ -47,3 +47,12 @@ export const EditPosts = async (post_id, data) => {
     throw error
   }
 }
+
+export const DeletePosts = async (post_id, data) => {
+  try {
+    const res = await Client.delete(`/posts/${post_id}`, data)
+    return res
+  } catch (error) {
+    throw error
+  }
+}

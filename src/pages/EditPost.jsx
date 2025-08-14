@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { updateProfile } from '../services/Auth'
-import { GetEditPost, EditPosts } from '../services/Post'
+import { GetEditPost, EditPosts, DeletePosts } from '../services/Post'
 
 const EditPost = ({ user }) => {
   let navigate = useNavigate()
@@ -25,6 +24,10 @@ const EditPost = ({ user }) => {
 
   const handleChange = (e) => {
     setPost({ ...post, [e.target.name]: e.target.value })
+  }
+
+  const onDelete = () => {
+    DeletePosts(post_id).then(() => navigate('/posts'))
   }
 
   const handleSubmit = async (e) => {
@@ -57,7 +60,7 @@ const EditPost = ({ user }) => {
               <span className="icon"></span>
             </div>
 
-            <div className="input-div">
+            {/* <div className="input-div">
               <input
                 type="file"
                 name={'img'}
@@ -81,7 +84,7 @@ const EditPost = ({ user }) => {
                 <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3" />
                 <polyline points="16 16 12 12 8 16" />
               </svg>
-            </div>
+            </div> */}
             <textarea
               name={'description'}
               placeholder={'description'}
@@ -94,6 +97,10 @@ const EditPost = ({ user }) => {
             ></textarea>
             <button className="b-in" type="submit">
               Submit
+            </button>
+            <br /><br />
+          <button className="b-in" type="delete" onClick={onDelete}>
+              Delete
             </button>
           </form>
         </div>
