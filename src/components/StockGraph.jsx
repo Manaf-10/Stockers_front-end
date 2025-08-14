@@ -5,22 +5,12 @@ import { getStock } from "../services/stock";
 import {
   addToOwnedList,
   addToTrackedList,
-<<<<<<< HEAD
   getTrackedList,
 } from "../services/lists";
 import { useNavigate } from "react-router-dom";
 import { createTransaction } from "../services/transaction";
 import BackButton from "./BackButton";
 const StockGraph = ({ stock, setStock, user }) => {
-=======
-  getOwnedList,
-  getTrackedList
-} from '../services/lists'
-import { createTransaction } from '../services/transaction'
-
-
-const StockGraph = ({ stock, user, setStockData, setShowGraph }) => {
->>>>>>> 6aec15f42c0e239b41a8d3e15ec6e7e987d941b9
   const skipped = (ctx, value) =>
     ctx.p0.skip || ctx.p1.skip ? value : undefined;
   const down = (ctx, value) =>

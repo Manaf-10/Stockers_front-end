@@ -120,9 +120,4 @@ const App = () => {
   );
 };
 
-<<<<<<< HEAD
 export default App;
-=======
-export default App
-
->>>>>>> 6aec15f42c0e239b41a8d3e15ec6e7e987d941b9
