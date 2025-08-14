@@ -1,4 +1,5 @@
 import Client from "./api";
+
 const temp = {data:{
   "Meta Data": {
     "1. Information": "Daily Prices (open, high, low, close) and Volumes",

@@ -16,6 +16,7 @@ const Logs = ({ user }) => {
   }, []);
 
   console.log(Transactions);
+  
 
   if (user.id !== Transactions.map((Transaction) => Transaction.owner)) {
     return (

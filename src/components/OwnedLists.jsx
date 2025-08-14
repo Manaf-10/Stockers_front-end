@@ -28,6 +28,7 @@ const OwnedLists = ({ user }) => {
       console.log(error)
     }
   }
+  
 
   useEffect(() => {
     fetchOwnedLists()

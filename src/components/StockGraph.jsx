@@ -11,6 +11,7 @@ import {
 } from '../services/lists'
 import { createTransaction } from '../services/transaction'
 
+
 const StockGraph = ({ stock, user, setStockData, setShowGraph }) => {
   const skipped = (ctx, value) =>
     ctx.p0.skip || ctx.p1.skip ? value : undefined

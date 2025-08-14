@@ -44,3 +44,4 @@ const DropDown = ({ user, handleLogOut }) => {
 };
 
 export default DropDown;
+

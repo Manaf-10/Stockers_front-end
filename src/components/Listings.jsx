@@ -31,3 +31,4 @@ const Listings = ({user}) => {
 }
 
 export default Listings
+

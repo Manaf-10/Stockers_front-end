@@ -25,6 +25,7 @@ const EditPost = ({ user }) => {
   const handleChange = (e) => {
     setPost({ ...post, [e.target.name]: e.target.value })
   }
+  
 
   const onDelete = () => {
     DeletePosts(post_id).then(() => navigate('/posts'))

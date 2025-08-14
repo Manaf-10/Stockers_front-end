@@ -26,6 +26,7 @@ const UploadPost = ({ user }) => {
     console.log(payload)
     setPost(initialState)
   }
+  
 
   if (user) {
     return (

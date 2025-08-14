@@ -19,6 +19,7 @@ const Profile = ({ user }) => {
       return <OwnedLists user={user}/>  
     }
   };
+  
 
   const changePage = (e) => {
     setpage(e.target.innerText);

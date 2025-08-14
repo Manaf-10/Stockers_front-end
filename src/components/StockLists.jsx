@@ -78,3 +78,4 @@ const StockLists = ({ user }) => {
 };
 
 export default StockLists;
+
