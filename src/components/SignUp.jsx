@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { RegisterUser } from "../services/Auth";
 
+
 const SignUp = () => {
   let navigate = useNavigate();
 

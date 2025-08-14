@@ -54,3 +54,4 @@ export const deleteTracked = async (userId, symbol) => {
     console.log(error)
   }
 }
+

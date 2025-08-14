@@ -18,7 +18,7 @@ state of the stock of a company through a line chart that can make it easy to
 make decisions and easy new users to the stock market , can also send posts and veiw posts of others related to stocks and their buying options
 
 # Component Hierarchy
-![img](./readMeImgs/App.png)
+![img](./readMeImgs/lastDay.png)
 <br><br>
 <br><br>
 
@@ -28,14 +28,6 @@ make decisions and easy new users to the stock market , can also send posts and 
 <br><br>
 
 # Wireframes
-
-![img](./readMeImgs/1.png)
-<br><br>
-<br><br>
-
-![img](./readMeImgs/2.png)
-<br><br>
-<br><br>
 
 ![img](./readMeImgs/3.png)
 <br><br>
@@ -49,10 +41,9 @@ make decisions and easy new users to the stock market , can also send posts and 
 <br><br>
 <br><br>
 
-![img](./readMeImgs/6.png)
-<br><br>
-<br><br>
 
+### and you can view more from  [here](https://www.canva.com/design/DAGvYY53A_A/Ys5SFNqTUrPE1dNtHWTxYQ/edit)
+<br><br>
 
 # Technologies Used
 

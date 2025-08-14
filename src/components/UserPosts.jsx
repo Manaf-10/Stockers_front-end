@@ -39,3 +39,4 @@ const UserPosts = ({ user }) => {
 }
 
 export default UserPosts
+
