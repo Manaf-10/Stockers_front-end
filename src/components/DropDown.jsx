@@ -4,19 +4,18 @@ const DropDown = ({ user, handleLogOut }) => {
   return (
     <div className="dropdown">
       <img
-        src={`http://localhost:3000/public/avatars/${user.avatar}`}
+        src={`https://stockers-08633ec7dca9.herokuapp.com/public/avatars/${user.avatar}`}
         alt="nav-pic"
         className="dropdown-toggle"
         data-bs-toggle="dropdown"
         aria-expanded="false"
         style={{
-          width: "10%",
+          width: "6%",
           aspectRatio: "1/1",
           borderRadius: "50%",
           objectFit: "cover",
           cursor: "pointer",
-          marginLeft: "100%",
-          marginTop: "1%",
+          marginLeft: "87%",
         }}
       />
       <ul className="dropdown-menu">

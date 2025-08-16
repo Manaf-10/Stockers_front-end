@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import SearchBar from "./SearchBar";
 import DropDown from "./DropDown";
 const Header = ({ user, setUser }) => {
   let navigate = useNavigate();

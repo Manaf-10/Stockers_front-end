@@ -27,7 +27,7 @@ const UserPosts = ({ user }) => {
           onClick={() => navigate(`/profile/${post._id}`)}
         >
           <img
-            src={`http://localhost:3000/public/posts/${post.img}`}
+            src={`https://stockers-08633ec7dca9.herokuapp.com/public/posts/${post.img}`}
             alt="something"
           />
         </div>

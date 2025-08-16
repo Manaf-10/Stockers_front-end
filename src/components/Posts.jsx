@@ -27,14 +27,14 @@ const Posts = ({ user }) => {
             <div key={post._id} className="post-card">
               {post.img && (
                 <img
-                  src={`http://localhost:3000/public/posts/${post.img}`}
+                  src={`https://stockers-08633ec7dca9.herokuapp.com/public/posts/${post.img}`}
                   alt={post.title}
                 />
               )}
               <div className="post-details">
                 <div className="post-owner">
                   <img
-                    src={`http://localhost:3000/public/avatars/${post.owner.avatar}`}
+                    src={`https://stockers-08633ec7dca9.herokuapp.com/public/avatars/${post.owner.avatar}`}
                     alt={`${post.owner.username} avatar`}
                   />
                   <p>{`${post.owner.username}`}</p>
