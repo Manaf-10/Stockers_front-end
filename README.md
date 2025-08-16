@@ -60,3 +60,6 @@ make decisions and easy new users to the stock market , can also send posts and 
 - Stocks API: [Alpha Vantage](https://www.alphavantage.co)
 - Animated  background: [vantajs](https://www.vantajs.com/)
 - Boostrab: [getbootstrap](https://getbootstrap.com/)
+
+# Deployed-Link
+-[Stockers](https://stockers.surge.sh/)
